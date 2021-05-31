@@ -1,5 +1,5 @@
-<?php include __DIR__ . '../../php/common/config.php' ?>
-<?php include __DIR__ . '../../php/common/__connect_db.php' ?>
+<?php include __DIR__ . '../../php/common/config.php'?>
+<?php include __DIR__ . '../../php/common/__connect_db.php'?>
 
 
 <?php
@@ -19,14 +19,11 @@ $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
 $totalBidSql = "SELECT SUM(quantity) AS `bid` FROM `order_detail` WHERE `fund_sid` > 0";
 $rowTotalBid = $pdo->query($totalBidSql)->fetch();
 
-
 // 目前募資的進度百分比
 // $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
- $rowNowPercentage = floor(($rowTotalPrice['total'] / 60000)* 100);
+$rowNowPercentage = floor(($rowTotalPrice['total'] / 60000) * 100);
 
 // $psid = 5;
-
-
 
 // 抓資料庫裡的關注清單
 // 關注列
@@ -51,46 +48,44 @@ if (isset($_SESSION['user'])) {
     // 如果不是 會員，也沒有關注
 }
 
-    // 推薦商品
-    $c_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` ORDER BY RAND() LIMIT 1";
-    $c_row = $pdo->query($c_SQL)->fetch();
-    $c_row_sid = $c_row['sid'];
+// 推薦商品
+$c_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` ORDER BY RAND() LIMIT 1";
+$c_row = $pdo->query($c_SQL)->fetch();
+$c_row_sid = $c_row['sid'];
 
+$t_SQL = "SELECT * FROM `products` WHERE `type_sid` = 50 AND `sid` AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
+$t_row = $pdo->query($t_SQL)->fetch();
+$t_row_sid = $t_row['sid'];
 
-    $t_SQL = "SELECT * FROM `products` WHERE `type_sid` = 50 AND `sid` AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
-    $t_row = $pdo->query($t_SQL)->fetch();
-    $t_row_sid = $t_row['sid'];
+$b_SQL = "SELECT * FROM `products` WHERE `type_sid` = 48 AND `sid`  ORDER BY RAND() LIMIT 1";
 
-    $b_SQL = "SELECT * FROM `products` WHERE `type_sid` = 48 AND `sid`  ORDER BY RAND() LIMIT 1";
+$b_row = $pdo->query($b_SQL)->fetch();
 
-    $b_row = $pdo->query($b_SQL)->fetch();
+// 從資料庫抓收藏清單
+// 登入會員的狀態，抓收藏商品
+$c_arr = [];
+if (isset($_SESSION['user'])) {
 
-    // 從資料庫抓收藏清單
-    // 登入會員的狀態，抓收藏商品
-    $c_arr = [];
-    if (isset($_SESSION['user'])) {
-
-        $m_sid = $_SESSION['user']['sid'];
-        $co_SQL = "SELECT `product_sid` FROM `collect` WHERE `member_sid` = $m_sid";
-        $co_row = $pdo->query($co_SQL)->fetchAll();
-        if (!empty($co_row)) {
-            foreach ($co_row as $co) {
-                array_push($c_arr, $co['product_sid']);
-            }
+    $m_sid = $_SESSION['user']['sid'];
+    $co_SQL = "SELECT `product_sid` FROM `collect` WHERE `member_sid` = $m_sid";
+    $co_row = $pdo->query($co_SQL)->fetchAll();
+    if (!empty($co_row)) {
+        foreach ($co_row as $co) {
+            array_push($c_arr, $co['product_sid']);
         }
     }
+}
 
-    // new標籤
-    $deadline = strtotime('2021-05-01');
+// new標籤
+$deadline = strtotime('2021-05-01');
 
-    // 從哪裡來
-    $come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
-    $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
-
+// 從哪裡來
+$come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
+$come_cate = strpos($come_from, 'all-product.php?cate=') ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
 
 ?>
 
-<?php include __DIR__ . '../../php/common/html-head.php' ?>
+<?php include __DIR__ . '../../php/common/html-head.php'?>
 
 
 <!-- slick css-->
@@ -104,14 +99,14 @@ if (isset($_SESSION['user'])) {
 <!-- my-style css -->
 <link rel="stylesheet" href="../css/fund/fund.css">
 
-<?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<?php include __DIR__ . '../../php/common/html-body-navbar.php'?>
 <!-- 會員登入 -->
-<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
-<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
-<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+<?php include __DIR__ . '../../php/common/Login-Sign.php'?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php'?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php'?>
 
 <section class="mobile-menu">
-    <?php include __DIR__ . '../../php/common/category.php' ?>
+    <?php include __DIR__ . '../../php/common/category.php'?>
 </section>
 
 <!-- 這裡開始寫html -->
@@ -124,11 +119,8 @@ if (isset($_SESSION['user'])) {
                     <div class="row">
                             <div class="img-demo">
                                 <img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt="">
-                                <img class="pics" id="pic2" src="../images/joyce_images/fund-p-2.jpg" alt="">
-                                <img class="pics" id="pic3" src="../images/joyce_images/fund-p-3.jpg" alt="">
-                                <img class="pics" id="pic4" src="../images/joyce_images/fund-p-4.jpg" alt="">
                             </div>
-          
+
                             <div class="img-wrap d-flex mt-5">
                                 <div class="img-row">
                                      <img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt="">
@@ -142,10 +134,10 @@ if (isset($_SESSION['user'])) {
                                 <div class="img-row">
                                     <img class="pics" id="pic4" src="../images/joyce_images/fund-p-4.jpg" alt="">
                                 </div>
-                            </div>                    
+                            </div>
                     </div>
 
-                </div> 
+                </div>
                 <div id="demo-carousel" class="carousel slide" data-ride="carousel">
 
                     <!-- Indicators -->
@@ -197,27 +189,27 @@ if (isset($_SESSION['user'])) {
                     <div class="col-6 col-md-6 ">
                         <div class="progress blue"> <span class="progress-left"> <span class="progress-bar"></span>
                             </span> <span class="progress-right"> <span class="progress-bar"></span> </span>
-                            <div class="progress-value"><?= $rowNowPercentage ?>%</div>
-                          
+                            <div class="progress-value"><?=$rowNowPercentage?>%</div>
+
                         </div>
                     </div>
                     <div class="col-6 col-md-6 ">
                         <div class="goal">
                             <div class="current-value">
-                                <h3><?= "NT $" . number_format($rowTotalPrice['total'], 0, ".", ",") ?></h3>
+                                <h3><?="NT $" . number_format($rowTotalPrice['total'], 0, ".", ",")?></h3>
                             </div>
                             <div class="goal-value">
                                 <p><span class="goal-title">目標 |</span>
-                                    <?= "NT $" . number_format($f['goal_price'], 0, ".", ",") ?></p>
+                                    <?="NT $" . number_format($f['goal_price'], 0, ".", ",")?></p>
                             </div>
                         </div>
                         <!-- 加入關注按鈕 -->
-                        <?php if (!isset($_SESSION['user'])) : ?>
+                        <?php if (!isset($_SESSION['user'])): ?>
 
                                 <button class="btn_attention btn_attention_nologin" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
-                            <?php else : ?>
+                            <?php else: ?>
                                 <!-- ???設定重新載入還是會有的條件，前後頁紀錄關注 -->
-                                <?php if (in_array($f['sid'], $a_arr)) : ?>
+                                <?php if (in_array($f['sid'], $a_arr)): ?>
                                     <!-- 沒有關注的時候顯示 加入關注 -->
                                     <button class="btn_attention btn_attention_be d-none">
                                         <i class="fas fa-plus"></i>加入關注
@@ -226,8 +218,8 @@ if (isset($_SESSION['user'])) {
                                     <button class="btn_attention_active ">
                                         <i class="fas fa-check"></i>已關注
                                     </button>
-        
-                                <?php else : ?>
+
+                                <?php else: ?>
                                     <button class="btn_attention btn_attention_be ">
                                         <i class="fas fa-plus"></i>加入關注
                                     </button>
@@ -235,11 +227,11 @@ if (isset($_SESSION['user'])) {
                                     <button class="btn_attention_active d-none">
                                         <i class="fas fa-check"></i>已關注
                                     </button>
-                                <?php endif; ?>
-                            <?php endif; ?>
-                            <a data-cate= "<?= $f['sid'] ?>"></a>
+                                <?php endif;?>
+                            <?php endif;?>
+                            <a data-cate= "<?=$f['sid']?>"></a>
                     </div>
-                    
+
                 </div>
                 <div class="sub-intro mt-5">
                     <p>贊助次數 | <?=$rowTotalBid['bid']?>次</p>
@@ -294,10 +286,10 @@ if (isset($_SESSION['user'])) {
                             <button class="collapsible"
                             data-collapse="#coll2">Q2.我想要贊助計畫，可以透過哪些方式呢？</button>
                             <div class="content" id="coll2"><p>可以透過選擇計畫中的方案，並可自由贊助金額（以100元為單位）來支持計畫，信用卡服務。</p></div>
-                            <button class="collapsible" 
+                            <button class="collapsible"
                             data-collapse="#coll3">Q3.請問如何取得贊助的產品呢？</button>
                             <div class="content" id="coll3"><p>目前啤女提供超商取貨包及宅配兩種運送服務喔。</p></div>
-                            <button class="collapsible">Q4.請問會有更多促銷或優惠活動嗎？</button><div class="content"><p>啤女募資計畫絕對是雲水精釀啤酒廠在台灣2021最優惠的價格，敬請把握。</p></div> 
+                            <button class="collapsible">Q4.請問會有更多促銷或優惠活動嗎？</button><div class="content"><p>啤女募資計畫絕對是雲水精釀啤酒廠在台灣2021最優惠的價格，敬請把握。</p></div>
 
                         </div>
 
@@ -306,51 +298,51 @@ if (isset($_SESSION['user'])) {
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
-                <?php foreach ($f_rows as $f) : ?>
+                <?php foreach ($f_rows as $f): ?>
                     <ul class="card-list">
-                        <?php if (!isset($_SESSION['user'])) : ?>
+                        <?php if (!isset($_SESSION['user'])): ?>
                             <li class="card" id="card1" onclick="LogIn_btn()">
                                 <a class="card-description">
                                     <!-- pic -->
-                                    <img class="pic" src="../images/joyce_images/<?= $f['pic'] ?> " alt="">
+                                    <img class="pic" src="../images/joyce_images/<?=$f['pic']?> " alt="">
                                     <!-- plan_price -->
-                                    <h2 class=" plan_price">$<?= $f['plan_price'] ?></h2>
+                                    <h2 class=" plan_price">$<?=$f['plan_price']?></h2>
                                     <!-- c_name -->
-                                    <p class="c_name" style="color: var(--gold);"><?= $f['c_name'] ?></p>
+                                    <p class="c_name" style="color: var(--gold);"><?=$f['c_name']?></p>
                                     <!-- plan_title在資料庫叫 e-name -->
                                     <div class="e_name mb-3">
-                                        <p style="color: var(--gold);"><?= $f['e_name'] ?></p>
+                                        <p style="color: var(--gold);"><?=$f['e_name']?></p>
                                     </div>
                                     <!-- plan_content -->
                                     <div class="plan_content">
-                                        <?= $f['plan_content'] ?>
+                                        <?=$f['plan_content']?>
 
                                     </div>
                                 </a>
                             </li>
-                        <?php else : ?>
+                        <?php else: ?>
                             <li class="card" id="card1">
-                                <a class="card-description" href="fund-final.php?sid=<?= $f['sid'] ?>">
+                                <a class="card-description" href="fund-final.php?sid=<?=$f['sid']?>">
                                     <!-- pic -->
-                                    <img class="pic" src="../images/joyce_images/<?= $f['pic'] ?> " alt="">
+                                    <img class="pic" src="../images/joyce_images/<?=$f['pic']?> " alt="">
                                     <!-- plan_price -->
-                                    <h2 class=" plan_price">$<?= $f['plan_price'] ?></h2>
+                                    <h2 class=" plan_price">$<?=$f['plan_price']?></h2>
                                     <!-- c_name -->
-                                    <p class="c_name" style="color: var(--gold);"><?= $f['c_name'] ?></p>
+                                    <p class="c_name" style="color: var(--gold);"><?=$f['c_name']?></p>
                                     <!-- plan_title在資料庫叫 e-name -->
                                     <div class="e_name mb-3">
-                                        <p style="color: var(--gold);"><?= $f['e_name'] ?></p>
+                                        <p style="color: var(--gold);"><?=$f['e_name']?></p>
                                     </div>
                                     <!-- plan_content -->
                                     <div class="plan_content">
-                                        <?= $f['plan_content'] ?>
+                                        <?=$f['plan_content']?>
 
                                     </div>
                                 </a>
                             </li>
-                        <?php endif; ?>
+                        <?php endif;?>
                     </ul>
-                <?php endforeach; ?>
+                <?php endforeach;?>
             </div>
 
         </div>
@@ -374,43 +366,43 @@ if (isset($_SESSION['user'])) {
             <div class="col-12 d-flex related-p">
                 <!-- 商品BOX -->
                 <div class="col-12 col-lg-6 col-xl-4 f beer-product-wrap">
-                    <div class="beer-product" data-sid=<?= $c_row['sid'] ?> data-price=<?= $c_row['price'] ?> data-abv=<?= $c_row['abv'] ?>>
+                    <div class="beer-product" data-sid=<?=$c_row['sid']?> data-price=<?=$c_row['price']?> data-abv=<?=$c_row['abv']?>>
                         <div class="pro-pic">
                             <!-- 商品圖 -->
-                            <a href="each-product.php?psid=<?= $c_row['sid'] ?>">
-                                <img class="beer-pic" src="../images/products/<?= $c_row['pic'] ?>" alt="">
+                            <a href="each-product.php?psid=<?=$c_row['sid']?>">
+                                <img class="beer-pic" src="../images/products/<?=$c_row['pic']?>" alt="">
                             </a>
                             <!-- 標籤 -->
                             <div class="label">
-                                <?php if (strtotime($c_row['created_at']) > $deadline) : ?>
+                                <?php if (strtotime($c_row['created_at']) > $deadline): ?>
                                     <div class="new-label">
                                         <p>NEW</p>
                                     </div>
-                                <?php endif; ?>
+                                <?php endif;?>
 
-                                <?php if ($c_row['hot'] == 'true') : ?>
+                                <?php if ($c_row['hot'] == 'true'): ?>
                                     <div class="hot-label">
                                         <p>HOT</p>
                                     </div>
-                                <?php endif; ?>
+                                <?php endif;?>
                             </div>
 
                             <!-- 國家圖片 -->
-                            <div class="country"><img src="../images/country/<?= $c_row['country_pic'] ?>" alt=""></div>
+                            <div class="country"><img src="../images/country/<?=$c_row['country_pic']?>" alt=""></div>
 
                             <!-- 收藏按鈕 -->
                             <div class="collect">
-                                <?php if (!isset($_SESSION['user'])) : ?>
+                                <?php if (!isset($_SESSION['user'])): ?>
                                     <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
-                                <?php else : ?>
-                                    <?php if (in_array($c_row['sid'], $c_arr)) : ?>
+                                <?php else: ?>
+                                    <?php if (in_array($c_row['sid'], $c_arr)): ?>
                                         <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
                                         <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
-                                    <?php else : ?>
+                                    <?php else: ?>
                                         <button class="btn_collect" onclick="collectProduct()"><i class="far fa-heart"></i></button>
                                         <button class="btn_collect_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
-                                    <?php endif; ?>
-                                <?php endif; ?>
+                                    <?php endif;?>
+                                <?php endif;?>
 
 
                             </div>
@@ -419,129 +411,129 @@ if (isset($_SESSION['user'])) {
                         <!-- 商品介紹 -->
                         <div class="pro-intro d-flex flex-column justify-content-between">
                             <!-- 商品名稱 -->
-                            <a href="each-product.php?psid=<?= $c_row['sid'] ?>">
+                            <a href="each-product.php?psid=<?=$c_row['sid']?>">
                                 <div class="p-name">
-                                    <p class="p-name-c"><?= $c_row['c_name'] ?></p>
-                                    <p class="p-name-e"><?= $c_row['e_name'] ?></p>
+                                    <p class="p-name-c"><?=$c_row['c_name']?></p>
+                                    <p class="p-name-e"><?=$c_row['e_name']?></p>
                                 </div>
                             </a>
                         </div>
                         <!-- 了解更多 -->
-                        <a href="each-product.php?psid=<?= $c_row['sid'] ?>">
+                        <a href="each-product.php?psid=<?=$c_row['sid']?>">
                             <div class="know-more">了解更多</div>
                         </a>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                    <div class="beer-product" data-sid=<?= $t_row['sid'] ?> data-price=<?= $t_row['price'] ?> data-abv=<?= $t_row['abv'] ?>>
+                    <div class="beer-product" data-sid=<?=$t_row['sid']?> data-price=<?=$t_row['price']?> data-abv=<?=$t_row['abv']?>>
                         <div class="pro-pic">
                             <!-- 商品圖 -->
-                            <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
-                                <img class="beer-pic" src="../images/products/<?= $t_row['pic'] ?>" alt="">
+                            <a href="each-product.php?psid=<?=$t_row['sid']?>">
+                                <img class="beer-pic" src="../images/products/<?=$t_row['pic']?>" alt="">
                             </a>
                             <!-- 標籤 -->
                             <div class="label">
-                                <?php if (strtotime($t_row['created_at']) > $deadline) : ?>
+                                <?php if (strtotime($t_row['created_at']) > $deadline): ?>
                                     <div class="new-label">
                                         <p>NEW</p>
                                     </div>
-                                <?php endif; ?>
+                                <?php endif;?>
 
-                                <?php if ($t_row['hot'] == 'true') : ?>
+                                <?php if ($t_row['hot'] == 'true'): ?>
                                     <div class="hot-label">
                                         <p>HOT</p>
                                     </div>
-                                <?php endif; ?>
+                                <?php endif;?>
                             </div>
 
                             <!-- 國家圖片 -->
-                            <div class="country"><img src="../images/country/<?= $t_row['country_pic'] ?>" alt=""></div>
+                            <div class="country"><img src="../images/country/<?=$t_row['country_pic']?>" alt=""></div>
 
                             <!-- 收藏按鈕 -->
                             <div class="collect">
-                                <?php if (!isset($_SESSION['user'])) : ?>
+                                <?php if (!isset($_SESSION['user'])): ?>
                                     <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
-                                <?php else : ?>
-                                    <?php if (in_array($t_row['sid'], $c_arr)) : ?>
+                                <?php else: ?>
+                                    <?php if (in_array($t_row['sid'], $c_arr)): ?>
                                         <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
                                         <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
-                                    <?php else : ?>
+                                    <?php else: ?>
                                         <button class="btn_collect" onclick="collectProduct()"><i class="far fa-heart"></i></button>
                                         <button class="btn_collect_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
-                                    <?php endif; ?>
-                                <?php endif; ?>
+                                    <?php endif;?>
+                                <?php endif;?>
                             </div>
                         </div>
 
                         <!-- 商品介紹 -->
                         <div class="pro-intro d-flex flex-column justify-content-between">
                             <!-- 商品名稱 -->
-                            <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
+                            <a href="each-product.php?psid=<?=$t_row['sid']?>">
                                 <div class="p-name">
-                                    <p class="p-name-c"><?= $t_row['c_name'] ?></p>
-                                    <p class="p-name-e"><?= $t_row['e_name'] ?></p>
+                                    <p class="p-name-c"><?=$t_row['c_name']?></p>
+                                    <p class="p-name-e"><?=$t_row['e_name']?></p>
                                 </div>
                             </a>
                         </div>
                         <!-- 了解更多 -->
-                        <a href="each-product.php?psid=<?= $c_row['sid'] ?>">
+                        <a href="each-product.php?psid=<?=$c_row['sid']?>">
                             <div class="know-more">了解更多</div>
                         </a>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                    <div class="beer-product" data-sid=<?= $t_row['sid'] ?> data-price=<?= $t_row['price'] ?> data-abv=<?= $t_row['abv'] ?>>
+                    <div class="beer-product" data-sid=<?=$t_row['sid']?> data-price=<?=$t_row['price']?> data-abv=<?=$t_row['abv']?>>
                         <div class="pro-pic">
                             <!-- 商品圖 -->
-                            <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
-                                <img class="beer-pic" src="../images/products/<?= $t_row['pic'] ?>" alt="">
+                            <a href="each-product.php?psid=<?=$t_row['sid']?>">
+                                <img class="beer-pic" src="../images/products/<?=$t_row['pic']?>" alt="">
                             </a>
                             <!-- 標籤 -->
                             <div class="label">
-                                <?php if (strtotime($t_row['created_at']) > $deadline) : ?>
+                                <?php if (strtotime($t_row['created_at']) > $deadline): ?>
                                     <div class="new-label">
                                         <p>NEW</p>
                                     </div>
-                                <?php endif; ?>
+                                <?php endif;?>
 
-                                <?php if ($t_row['hot'] == 'true') : ?>
+                                <?php if ($t_row['hot'] == 'true'): ?>
                                     <div class="hot-label">
                                         <p>HOT</p>
                                     </div>
-                                <?php endif; ?>
+                                <?php endif;?>
                             </div>
 
                             <!-- 國家圖片 -->
-                            <div class="country"><img src="../images/country/<?= $t_row['country_pic'] ?>" alt=""></div>
+                            <div class="country"><img src="../images/country/<?=$t_row['country_pic']?>" alt=""></div>
 
                             <!-- 收藏按鈕 -->
                             <div class="collect">
-                                <?php if (!isset($_SESSION['user'])) : ?>
+                                <?php if (!isset($_SESSION['user'])): ?>
                                     <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
-                                <?php else : ?>
-                                    <?php if (in_array($t_row['sid'], $c_arr)) : ?>
+                                <?php else: ?>
+                                    <?php if (in_array($t_row['sid'], $c_arr)): ?>
                                         <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
                                         <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
-                                    <?php else : ?>
+                                    <?php else: ?>
                                         <button class="btn_collect" onclick="collectProduct()"><i class="far fa-heart"></i></button>
                                         <button class="btn_collect_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
-                                    <?php endif; ?>
-                                <?php endif; ?>
+                                    <?php endif;?>
+                                <?php endif;?>
                             </div>
                         </div>
 
                         <!-- 商品介紹 -->
                         <div class="pro-intro d-flex flex-column justify-content-between">
                             <!-- 商品名稱 -->
-                            <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
+                            <a href="each-product.php?psid=<?=$t_row['sid']?>">
                                 <div class="p-name">
-                                    <p class="p-name-c"><?= $t_row['c_name'] ?></p>
-                                    <p class="p-name-e"><?= $t_row['e_name'] ?></p>
+                                    <p class="p-name-c"><?=$t_row['c_name']?></p>
+                                    <p class="p-name-e"><?=$t_row['e_name']?></p>
                                 </div>
                             </a>
                         </div>
                         <!-- 了解更多 -->
-                        <a href="each-product.php?psid=<?= $c_row['sid'] ?>">
+                        <a href="each-product.php?psid=<?=$c_row['sid']?>">
                             <div class="know-more">了解更多</div>
                         </a>
                     </div>
@@ -562,8 +554,8 @@ if (isset($_SESSION['user'])) {
 
 
 
-<?php include __DIR__ . '../../php/common/html-body-footer.php' ?>
-<?php include __DIR__ . '../../php/common/script.php' ?>
+<?php include __DIR__ . '../../php/common/html-body-footer.php'?>
+<?php include __DIR__ . '../../php/common/script.php'?>
 <!-- 這裡開始寫jQuery或JS -->
 
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -575,4 +567,4 @@ if (isset($_SESSION['user'])) {
 <script src='../js/fund/fund.js'></script>
 <script src='../js/fund/fund_attention.js'></script>
 
-<?php include __DIR__ . '../../php/common/html-end.php' ?>
+<?php include __DIR__ . '../../php/common/html-end.php'?>
