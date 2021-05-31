@@ -177,6 +177,9 @@ $(window).resize(function () {
     }
 })
 
+// 設定在world頁面時...
+let wd = $('.world').css('display')
+if (wd!='none'){
 // 選項固定在下方(手機版寬度)
 if ($(window).width() < 700) {
     let wh = $(window).height()
@@ -204,7 +207,7 @@ $(window).resize(function () {
         $('.phone-option').addClass('display-none');
     }
 })
-
+}
 
 // 選項固定在下方(手機版寬度之下高度有變化時)
 let fh = $('.beer-warning').height()

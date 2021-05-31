@@ -28,8 +28,6 @@ $page_title = '登入測試';
  
     
      <!-- 登入測試 -->
-
-
      <form class="LogIn-content-wrap" name="Login" method="post"  novalidate onsubmit="checkform_Login(); return false;">
     
          <h3>登入帳號</h3>
@@ -42,8 +40,6 @@ $page_title = '登入測試';
           
           <button class="LogIn-btn02" type="submit"> 登入</button>
           
-
-
      </form>    
 
 
@@ -91,6 +87,68 @@ $page_title = '登入測試';
 
 
      </form>
+
+
+     <br><br> 
+
+
+      <!-- 忘記密碼畫面 -->
+      <div class="log-content Forget-Password" >
+                <div class="Forget-Password-title">
+                    <h3>忘記密碼</h3>
+                </div>
+
+                <form name="UserEmail" class="UserEmail-wrap" method="post" >
+
+                    <div class="Forget-UserEmail">
+                        <h3>E-mail信箱</h3>
+                        <i class="far fa-envelope email-icon01"></i>
+                        <input class="input-btn" type="email" id="Forget-UserEmail" name="ForgetUserEmail" >
+                    </div>
+                    <div class="send-email-warp d-flex">
+                        <small class="warn-text">請輸入您的電子信箱來傳送驗證碼</small>
+                        <button class="search-email"  type="submit" onclick="Forget_Email();return false">搜尋</button>
+                    </div>
+                   
+
+                    <div class="Forget-Check">
+                        <h3>請輸入驗證碼</h3>
+                        <input class="input-btn" type="text" id="Forget-UserEmail-Check" name="Forget_UserEmail_Check">
+                        <div class="resend-warp d-flex">
+                            <i class="fas fa-redo-alt"></i>
+                            <button class="resende-code-btn"type="submit" onclick="Forget_Email();return false">重新傳送驗證碼</button>
+                        </div>
+                    </div>
+
+                    <div class="forget-next-btn">下一步</div>
+
+                    <div class="backward back04" >
+                        <h3>回上頁</h3>
+                    </div>
+
+                </form>
+
+
+                <form name="ForgetChagePassword" class="ForgetChagePassword-wrap" >
+
+                    <div class="Forget-change">
+                        <h3>輸入新密碼</h3>
+                        <i class="fas fa-lock lock-icon03"></i>
+                        <input class="input-btn" type="password" id="forget-password" name="forget_change_password">
+                    </div>
+
+                    <div class="Forget-change-again">
+                        <h3>再次輸入密碼</h3>
+                        <i class="fas fa-lock lock-icon03"></i>
+                        <input class="input-btn" type="password" id="forget-password-again" name="forget_password_again">
+                    </div>
+
+                    <button class="Forget-change-btn">重新修改密碼</button>
+                    
+                </form>
+
+    
+            </div>
 
 
 

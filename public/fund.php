@@ -15,6 +15,10 @@ $f_SQL = "SELECT * FROM `fund`";
 $totalPriceSql = "SELECT SUM(quantity * price) AS `total` FROM `order_detail` WHERE `fund_sid` > 0";
 $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
 
+//目前贊助次數
+$totalBidSql = "SELECT SUM(quantity) AS `bid` FROM `order_detail` WHERE `fund_sid` > 0";
+$rowTotalBid = $pdo->query($totalBidSql)->fetch();
+
 
 // 目前募資的進度百分比
 // $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
@@ -61,6 +65,21 @@ if (isset($_SESSION['user'])) {
 
     $b_row = $pdo->query($b_SQL)->fetch();
 
+    // 從資料庫抓收藏清單
+    // 登入會員的狀態，抓收藏商品
+    $c_arr = [];
+    if (isset($_SESSION['user'])) {
+
+        $m_sid = $_SESSION['user']['sid'];
+        $co_SQL = "SELECT `product_sid` FROM `collect` WHERE `member_sid` = $m_sid";
+        $co_row = $pdo->query($co_SQL)->fetchAll();
+        if (!empty($co_row)) {
+            foreach ($co_row as $co) {
+                array_push($c_arr, $co['product_sid']);
+            }
+        }
+    }
+
     // new標籤
     $deadline = strtotime('2021-05-01');
 
@@ -80,7 +99,7 @@ if (isset($_SESSION['user'])) {
 
 
 <!-- slick js -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+<!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script> -->
 
 <!-- my-style css -->
 <link rel="stylesheet" href="../css/fund/fund.css">
@@ -103,27 +122,30 @@ if (isset($_SESSION['user'])) {
             <div class="col-md-6 col-lg-8">
                 <div class="product-display container">
                     <div class="row">
-                        <div class="col-12">
                             <div class="img-demo">
                                 <img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt="">
+                                <img class="pics" id="pic2" src="../images/joyce_images/fund-p-2.jpg" alt="">
+                                <img class="pics" id="pic3" src="../images/joyce_images/fund-p-3.jpg" alt="">
+                                <img class="pics" id="pic4" src="../images/joyce_images/fund-p-4.jpg" alt="">
                             </div>
-                        </div>
-                        <div class="col-12 mt-3">
+          
                             <div class="img-wrap d-flex mt-5">
                                 <div class="img-row">
-                                <a href="">
-                                <img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt="">
-                                </a>
+                                     <img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt="">
                                 </div>
-                                <div class="img-row"><img class="pics" id="pic2" src="../images/joyce_images/fund-p-2.jpg" alt=""></div>
-                                <div class="img-row"><img class="pics" id="pic3" src="../images/joyce_images/fund-p-3.jpg" alt=""></div>
-                                <div class="img-row"><img class="pics" id="pic4" src="../images/joyce_images/fund-p-4.jpg" alt=""></div>
-                            </div>
-                        </div>
+                                <div class="img-row">
+                                    <img class="pics" id="pic2" src="../images/joyce_images/fund-p-2.jpg" alt="">
+                                </div>
+                                <div class="img-row">
+                                    <img class="pics" id="pic3" src="../images/joyce_images/fund-p-3.jpg" alt="">
+                                 </div>
+                                <div class="img-row">
+                                    <img class="pics" id="pic4" src="../images/joyce_images/fund-p-4.jpg" alt="">
+                                </div>
+                            </div>                    
                     </div>
 
-                    
-                </div>
+                </div> 
                 <div id="demo-carousel" class="carousel slide" data-ride="carousel">
 
                     <!-- Indicators -->
@@ -220,8 +242,8 @@ if (isset($_SESSION['user'])) {
                     
                 </div>
                 <div class="sub-intro mt-5">
-                    <p>贊助人數 | 6215</p>
-                    <p>剩餘時間 | 7天 </p>
+                    <p>贊助次數 | <?=$rowTotalBid['bid']?>次</p>
+                    <p>剩餘時間 | 26天 </p>
                    <p> 計畫截止日 | 2021/06/30</p>
                 </div>
                 <a href="#plans">
@@ -544,9 +566,9 @@ if (isset($_SESSION['user'])) {
 <?php include __DIR__ . '../../php/common/script.php' ?>
 <!-- 這裡開始寫jQuery或JS -->
 
-
-<script>
-
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="../slick/slick.min.js"></script>
 </script>
 
 <!-- my script -->

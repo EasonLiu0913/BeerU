@@ -7,6 +7,16 @@
             box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
             position: fixed;
             z-index: 997;
+            animation: op .5s forwards;
+        }
+
+        @keyframes op {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
 
         /* NAV BAR手機版 改高度*/
@@ -530,6 +540,42 @@
         transform: scale(1) rotate(10deg);   
     }
 }
+
+
+        .beeru-nav-bar .gift-notice {
+            position: absolute;
+            top: 30px;
+            right: 5px;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            color: var(--blue);
+            background: url(../../images/common/achieve-notice.svg) center center no-repeat;
+            background-size: 100% 100% ;
+            padding: 15px;
+            padding-top: 22px;
+            text-align: center;
+            z-index: 10;
+            animation: upshow .6s ;
+            display: none;
+        }
+
+        .beeru-nav-bar .gift-notice a {
+            color: var(--red);
+        }
+
+@keyframes upshow {
+    0% {
+        transform: translateY(15px);   
+    }
+    70% {
+        transform: translateY(-8px);   
+    }
+    100% {
+        transform: translateY(0);   
+    }
+}
+
+
 
 
 

@@ -63,16 +63,20 @@ if (isset($_SESSION['user'])) {
         <!-- 2.2.標題+動畫 -->
         <div class="row justify-content-center align-items-center">
             <!-- 2.2.1.大標 -->
-            <!--???左耳朵會一直跑出來 -->
-            <p class='col-10 col-lg-3 order-2 order-lg-1 typewrite' data-period="2000" data-type='["給我 <br>一杯酒的時間"]'>
+            <div class="col-10 col-lg-3 order-2 order-lg-1">
+            <p class=''>給我</p>
+            <p  class='typewrite mt-0' data-period="2000" data-type='["一杯酒的時間"]'>
                 <span class="wrap"></span>
             </p>
+            </div>
             <!-- 2.2.2.動畫 -->
             <div class='col-12 col-lg-3 order-1 order-lg-2'>
-                <img class='beer_mug' src="../images/event/SVG/beer_mug_0.svg" alt="">
+                <img class='beer_mug d-none' src="../images/event/SVG/beer_mug_0.svg" alt="">
+
                 <img class='beer_mug_b' src="../images/event/SVG/beer_mug_b.svg" alt="">
+
                 <div class="pipi_beer_group">
-                    <img class='pipi_beer' src="../images/event/SVG/pipi_beer.svg" alt="">
+                    <img class='pipi_beer d-none' src="../images/event/SVG/pipi_beer.svg" alt="">
                     <img class='pipi_beer_b' src="../images/event/SVG/pipi_beer_b.svg" alt="">
                 </div>
             </div>
@@ -134,7 +138,6 @@ if (isset($_SESSION['user'])) {
                         <p><?= $e['event_overview'] ?></p>
                     </div>
                     <!--3.2.2.3.剩餘名額+瀏覽人次 -->
-                    <!-- ???跟報名連在一起 -->
                     <div class="row justify-content-between align-items-end">
                         <?php if (!$exp) : ?>
                             <?php if (!$remain) : ?>

@@ -2,6 +2,8 @@
 <?php
 // <!-- 需要置換的變數們 -->
 $page_title = '啤女BeerU:品飲會:立即報名';
+// $mail=$_SESSION['user']['email'];
+// echo('mail'.$mail);
 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 
@@ -327,8 +329,9 @@ $left_people = $e['event_people'] - $totalp;
             <div class="serve col-md-6 mb-4 mb-md-0 animatable fadeInUp">
                 <p class='t1 text-center'>特別精選</p>
                 <div class="row mx-0">
-                    <div class="product col-6">
-                        <div class="product-img"> <img src="../<?= $e['event_beer_1_pic'] ?>" alt="">
+                    <div class="product col-6 align-content-center">
+                        <div class="product-img"> 
+                            <img src="../<?= $e['event_beer_1_pic'] ?>" alt="">
                         </div>
                         <div class="product-name"><?= $e['event_beer_1_name'] ?></div>
                         <div class='know-more'>
@@ -385,12 +388,12 @@ $left_people = $e['event_people'] - $totalp;
                             <label for='p0_name'>姓名
                                 <i class="fas fa-check"></i>
                             </label>
-                            <input type="text" class='col-10' name='p0_name' id='p0_name' placeholder="啤啤" style='letter-spacing: 0;' oninput="getValue();" onporpertychange="getValue();" required>
+                            <input type="text" class='col-10' name='p0_name' id='p0_name' placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" style='letter-spacing: 0;' oninput="getValue();" onporpertychange="getValue();" required>
                         </div>
                         <p class='memo d-none'>＊請輸入正確姓名，以便現場核對身份</p>
                         <div class="form-title">
                             <label for='p0_mobile'>電話 <i class="fas fa-check"></i></label>
-                            <input class='col-10' type="tel" name='p0_mobile' id='p0_mobile' placeholder="0912-345-678" oninput="getValue();" onporpertychange="getValue();" required>
+                            <input class='col-10' type="tel" name='p0_mobile' id='p0_mobile' placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'"oninput="getValue();" onporpertychange="getValue();" required>
                         </div>
                         <p class='memo d-none pl-0'>＊請輸入正確電話，以便現場核對身份</p>
 
@@ -415,14 +418,14 @@ $left_people = $e['event_people'] - $totalp;
                                             姓名
                                             <i class="fas fa-check"></i>
                                         </label>
-                                        <input type="text" placeholder="啤啤" name='p1_name' id='p1_name' oninput="getValue();" onporpertychange="getValue();">
+                                        <input type="text" placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" name='p1_name' id='p1_name' oninput="getValue();" onporpertychange="getValue();">
                                     </div>
                                     <div class="form-title-s col-12 col-md-6">
                                         <label for='p1_mobile'>
                                             電話
                                             <i class="fas fa-check"></i>
                                         </label>
-                                        <input type="tel" placeholder="0912-345-678" name='p1_mobile' id='p1_mobile' oninput="getValue();" onporpertychange="getValue();">
+                                        <input type="tel" placeholder="0912-345-678"placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" name='p1_mobile' id='p1_mobile' oninput="getValue();" onporpertychange="getValue();">
                                     </div>
                                     <p class='memo ml-3  d-none'>＊請輸入正確姓名</p>
                                     <p class='memo memo-ml  d-none'>＊請輸入正確電話</p>
@@ -436,14 +439,14 @@ $left_people = $e['event_people'] - $totalp;
                                             姓名
                                             <i class="fas fa-check"></i>
                                         </label>
-                                        <input type="text" placeholder="啤啤" name='p2_name' id='p2_name' oninput="getValue();" onporpertychange="getValue();">
+                                        <input type="text" placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" name='p2_name' id='p2_name' oninput="getValue();" onporpertychange="getValue();">
                                     </div>
                                     <div class="form-title-s col-12 col-md-6">
                                         <label for='p2_mobile'>
                                             電話
                                             <i class="fas fa-check"></i>
                                         </label>
-                                        <input type="tel" placeholder="0912-345-678" name='p2_mobile' id='p2_mobile' oninput="getValue();" onporpertychange="getValue();">
+                                        <input type="tel" placeholder="0912-345-678"placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" name='p2_mobile' id='p2_mobile' oninput="getValue();" onporpertychange="getValue();">
                                     </div>
                                     <p class='memo ml-3  d-none'>＊請輸入正確姓名</p>
                                     <p class='memo memo-ml  d-none'>＊請輸入正確電話</p>
@@ -460,7 +463,7 @@ $left_people = $e['event_people'] - $totalp;
                                     <i class="fas fa-check"></i>
                                 </span>
                                 <!-- 設required都無效? -->
-                                <input name='checkCode' type="text" placeholder="區分大小寫" class='checkCode js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px" oninput="getValue();" onporpertychange="getValue();" required>
+                                <input name='checkCode' type="text" placeholder="區分大小寫" onfocus="this.placeholder = ''" onblur="this.placeholder = '區分大小寫'"class='checkCode js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px" oninput="getValue();" onporpertychange="getValue();" required>
                                 <input type="text" class="js5-authCode mx-3" style="width:100px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.25rem;border:1px solid white;font-family:'Noto Serif TC', serif;" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
                                 <a class='recode' href="javascript:"><i class="fas fa-undo-alt" style="font-size:1.4rem;letter-spacing:0"> 重新獲取驗證碼</i></a>
                             </div>

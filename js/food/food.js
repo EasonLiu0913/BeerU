@@ -1,9 +1,9 @@
-// Scroll to top button 
+// ----- Scroll to top button -----
 // 桌機版 
 if ($(window).width() >= 992) {
     $(window).scroll(function () {
 
-        if ($(this).scrollTop() >= 1450) {
+        if ($(this).scrollTop() >= 1310) {
             $('#return-to-top').fadeIn(200);
         } else {
             $('#return-to-top').fadeOut(200);
@@ -12,7 +12,7 @@ if ($(window).width() >= 992) {
 
     $('#return-to-top').click(function () {
         $('body,html').animate({
-            scrollTop: 1450
+            scrollTop: 1350
         }, 300, 'swing');
 
     })
@@ -30,7 +30,6 @@ if ($(window).width() < 992) {
             $('#return-to-top').fadeOut(200);
         }
 
-
     })
 
     $('#return-to-top').click(function () {
@@ -38,17 +37,14 @@ if ($(window).width() < 992) {
             scrollTop: 0
         }, 500);
     })
+
+    if ($(this).scrollTop() >= 2688) {
+                    $('#side-nav').fadeIn(200);
+                } else {
+                    $('#side-nav').fadeOut(200);
+                }
+        
 }
-
-// $('.scrollbtn').on('click', function (e) {
-//     e.preventDefault();
-//     $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top - 1000 }, 300, 'swing');
-
-// });
-
-
-// $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top }, 300, 'swing');
-
 
 
 $(document).ready(function () {
@@ -84,7 +80,7 @@ $(window).scroll(function () {
 
 
     let scrollNow = $(window).scrollTop();
-    console.log('scrollTop', $(this).scrollTop());
+    // console.log('scrollTop', $(this).scrollTop());
 
     // 桌機版
     if ($(window).width() >= 992) {
@@ -95,9 +91,9 @@ $(window).scroll(function () {
         }
 
 
-        if (scrollNow >= 1000) {
+        if (scrollNow >= 1255) {
 
-            $('.hand').css('transform', 'translate(-150px,-250px) rotate(0)').css('transition', '1s')
+            $('.hand').css('transform', 'translate(-250px,-450px) rotate(15deg)').css('transition', '1s')
 
 
 
@@ -128,41 +124,189 @@ $(window).scroll(function () {
             $('.Beer-type').css('opacity', '1').css('transition', '0.8s')
 
         }
+
+        if (scrollNow >= 1870) {
+
+            $('.hand').css('transform', 'translate(-150px,-250px) rotate(0)').css('transition', '1s')
+
+
+
+            //   setInterval(() => {
+            //     $('.type-color').css('opacity','1').css('transition','1s')
+
+            //   }, 1500);
+
+
+        }
+
+        else {
+            $('.hand').css('transform', 'translate(-150px,-250px) rotate(-30deg)').css('transition', '1s')
+
+        }
+
+
+
     }
 
 
 });
 
 //  ------  scroll-animations  ------ //
+console.log('hi')
+// jQuery(function ($) {
+//  // 設置執行Animations=function (){}
+//         let doAnimations = function () {
 
-jQuery(function ($) {
-    // Function which adds the 'animated' class to any '.animatable' in view
-    let doAnimations = function () {
-        // Calc current offset and get all animatables
-        let offset = $(window).scrollTop() + $(window).height(),
-            $animatables = $('.animatable');
-        // Unbind scroll handler if we have no animatables
-        if ($animatables.length == 0) {
-            // $(window).off('scroll', doAnimations);
+//             console.log('hi2')
+//             // let offset = $(window).scrollTop() + $(window).height(),
+
+//             // 設置預設動作的class=$('.animatable')(預設為hidden，paused)
+//             $animatables = $('.animatable');
+
+//             // 條件1:若$('.animatable')的數量為0
+//              if ($animatables.length == 0) {
+//             //     $(window).off('scroll', doAnimations);
+//             }
+      
+//             $(window).scroll(function() {
+//             $animatables = $('.animatable');
+//             let userScrollTop = $(window).scrollTop()
+            
+//             let halfWindowHeight = $(window).height() / 5 * 4
+                
+//             $animatables.each(function (i) {
+//             // let $animatable = $(this);
+//              let anipo = $(this).offset().top
+//              console.log(userScrollTop,halfWindowHeight,anipo)
+//              if (anipo < userScrollTop + halfWindowHeight) {
+//                 $this.removeClass('animatable').addClass('animated');
+            
+      
+//             // if (($animatable.offset().top + $animatable.height() - 20) < offset) {
+//             //    $animatable.removeClass('animatable').addClass('animated');
+
+        
+
+
+//     // ----- side-nav -----   
+//                 let index = $animatable.closest('.pair-wrap').attr('data-index')
+//                 let navItem = $('.side-drop-img').eq(index);
+//                 navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
+                
+//             }
+        
+//         });
+
+
+
+//         $('.animated').each(function (i) {
+//             let $animatable = $(this);
+//             let index = $animatable.closest('.pair-wrap').prev().attr('data-index')
+//             if (($(this).offset().top + $(this).height() -100) > offset) {
+//                 $(this).removeClass('animated').addClass('animatable');
+
+
+//     // ----- side-nav -----           
+//                 let navItem = $('.side-drop-img').eq(index);
+//                 navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
+
+//             }
+        
+//         });
+//     });
+
+//     // Hook doAnimations on scroll, and trigger a scroll
+//     $(window).on('scroll', doAnimations);
+//     $(window).trigger('scroll');
+// }
+// });
+
+
+
+
+
+
+// -----  side-bar -----
+
+$(window).scroll(function () {
+
+    let scrollNow = $(window).scrollTop();
+    console.log(scrollNow)
+    
+
+    if ($(window).width() < 992) {
+        
+
+        if (scrollNow >= 2250) {
+
+            $('#side-nav').fadeIn(200);
+        } else {
+           $('#side-nav').fadeOut(200);
         }
-        // Check all animatables and animate them if necessary
-        $animatables.each(function (i) {
-            let $animatable = $(this);
-            // console.log('($animatable.offset().top + $animatable.height() - 100) < offset',($animatable.offset().top + $animatable.height() - 100) < offset);
-            if (($animatable.offset().top + $animatable.height() - 20) < offset) {
-                $animatable.removeClass('animatable').addClass('animated');
+    }
+
+
+
+            $animatables = $('.animatable');
+            $animateds = $('.animated');
+            let userScrollTop = $(window).scrollTop()
+            
+            let halfWindowHeight = $(window).height() / 5 * 4
+                
+            $animatables.each(function (i) {
+             let anipo = $(this).offset().top
+             if (anipo < userScrollTop + halfWindowHeight) {
+                // console.log(userScrollTop,halfWindowHeight,anipo)
+                $(this).removeClass('animatable').addClass('animated');
+
+            // ----- side-nav -----   
+                let index = $(this).closest('.pair-wrap').attr('data-index')
+                let navItem = $('.side-drop-img').eq(index);
+                navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
+                
             }
+            
+            // else if( anipo >= userScrollTop + halfWindowHeight){
+            //     console.log('back')
+            //     $(this).removeClass('animated').addClass('animatable');
+            //     let index = $(this).closest('.pair-wrap').attr('data-index')
+            //     let navItem = $('.side-drop-img').eq(index);
+            //     navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
+            // }
+        
         });
 
-        $('.animated').each(function (i) {
-            let $animatable = $(this);
 
-            if (($(this).offset().top + $(this).height() - 40) > offset) {
-                $(this).removeClass('animated').addClass('animatable');
-            }
-        });
-    };
-    // Hook doAnimations on scroll, and trigger a scroll
-    $(window).on('scroll', doAnimations);
-    $(window).trigger('scroll');
+        $animateds.each(function (i) {
+            let anipo = $(this).offset().top
+           
+           if( anipo >= userScrollTop + halfWindowHeight){
+               console.log('back')
+               $(this).removeClass('animated').addClass('animatable');
+               let index = $(this).closest('.pair-wrap').attr('data-index')
+               let navItem = $('.side-drop-img').eq(index);
+               navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
+           }
+       
+       });
+
+
+
+    //     $('.animated').each(function (i) {
+    //         let $animatable = $(this);
+    //         let index = $animatable.closest('.pair-wrap').prev().attr('data-index')
+    //         if (($(this).offset().top + $(this).height() -100) > offset) {
+    //             $(this).removeClass('animated').addClass('animatable');
+
+
+    // // ----- side-nav -----           
+    //             let navItem = $('.side-drop-img').eq(index);
+    //             navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
+
+    //         }
+        
+    //     });
+
 });
+
+

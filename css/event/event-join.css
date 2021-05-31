@@ -122,8 +122,12 @@ font-weight:normal;
  .join .serve{
      border:1px solid var(--gold);
      position: relative;
-     padding: 30px;
+     padding-top: 30px;
+     padding-bottom: 30px;
      margin-bottom: 50px;
+     /* min-width: 550px; */
+     max-width: 550px;
+
  }
 
  .join .serve .t1{
@@ -136,6 +140,26 @@ font-weight:normal;
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.join .serve .product{
+    /* min-width: 250px; */
+    max-width: 250px;
+}
+
+/* @media (max-width: 992px) {
+    .join .serve{
+        min-width:auto;
+    }
+
+    .join .serve .product{
+        min-width:auto;
+    }
+
+    .join .serve .product .product-name{
+        
+        max-width:50px;
+    }
+} */
 
 .join .serve .product img{
 max-height:25vh;
@@ -168,7 +192,11 @@ position: relative;
     font-size:1.6rem;
     line-height:1.75;
     margin-bottom:10px;
+    /* min-width: 250px; */
+    max-width: 250px;
     }
+
+
     .join .serve .product .know-more{
     margin:auto;
 transform: scale(.75);

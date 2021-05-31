@@ -1,5 +1,5 @@
 .cart-list .cart-title {
-    animation:titledown 1.2s ;
+    animation:titledown 1.2s .2s;
     animation-fill-mode: forwards;
 }
 
@@ -10,10 +10,12 @@
 
 @keyframes titledown {
     0% {
-        transform: translateY(-120%);
+        transform: translateY(-180%);
+        opacity: 0;
     }
     100% {
         transform: translateY(0);
+        opacity: 1;
     }
 }
 
@@ -29,7 +31,7 @@
 }
 
 .cart-list .pipi {
-    animation: pipiinhouse 1.2s .3s, pipiismoving 1s 1.5s infinite;
+    animation: pipiinhouse 1.2s .5s, pipiismoving 1s 1.5s infinite;
     animation-fill-mode: forwards;
 }
 
@@ -72,22 +74,22 @@
 }
 
 .cart-list .beer1 {
-    animation: beerthrow .8s 1.2s, beerjump 2s 2s infinite;
+    animation: beerthrow .8s 1.4s, beerjump 2s 2.1s infinite;
     animation-fill-mode: forwards;
 }
 
 .cart-list .beer2 {
-    animation: beerthrow2 .8s 1.4s, beerjump 2s 2.1s infinite;
+    animation: beerthrow2 .8s 1.6s, beerjump 2s 2.2s infinite;
     animation-fill-mode: forwards;
 }
 
 .cart-list .beer3 {
-    animation: beerthrow3 .9s 1.6s, beerjump 2s 2.2s infinite;
+    animation: beerthrow3 .9s 1.8s, beerjump 2s 2.3s infinite;
     animation-fill-mode: forwards;
 }
 
 .cart-list .beer4 {
-    animation: beerthrow4 1s 1.8s , beerjump 2s 2.3s infinite;
+    animation: beerthrow4 1s 2s , beerjump 2s 2.4s infinite;
     animation-fill-mode: forwards;
 }
 

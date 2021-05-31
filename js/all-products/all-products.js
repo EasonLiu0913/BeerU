@@ -32,13 +32,13 @@ $(function () {
             changePrice.text('$' + qty * price)
         } else if (qty > 30) {
             $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color','var(--red)')
+            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color', 'var(--red)')
             $('.pop-up-1 .pop-up-text').text('購買數量超過庫存，庫存為30')
             $(this).val('30')
             changePrice.text('$' + 30 * price)
         } else {
             $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color','var(--red)')
+            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color', 'var(--red)')
             $('.pop-up-1 .pop-up-text').text('請輸入正確數量，數量不得為0')
             $(this).val('1')
             changePrice.text('$' + price)
@@ -56,7 +56,7 @@ $(function () {
             changePrice.text('$' + qty * price)
         } else if (qty >= 30) {
             $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color','var(--red)')
+            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color', 'var(--red)')
             $('.pop-up-1 .pop-up-text').text('購買數量超過庫存，庫存為30')
             $(this).prev().val('30')
             changePrice.text('$' + 30 * price)
@@ -74,7 +74,7 @@ $(function () {
             changePrice.text('$' + qty * price)
         } else if (qty <= 1) {
             $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color','var(--red)')
+            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color', 'var(--red)')
             $('.pop-up-1 .pop-up-text').text('購買數量不得為0')
             $(this).next().val('1')
             changePrice.text('$' + price)
@@ -87,11 +87,11 @@ $(function () {
         let qty = $(this).closest('.p-buy').find('.buy-number').val()
         let psid = $(this).closest('.beer-product').attr('data-sid')
 
-        $.get('cart-api.php',{'action':'add','psid':psid, 'qty':qty },function(data){
+        $.get('cart-api.php', { 'action': 'add', 'psid': psid, 'qty': qty }, function (data) {
             // console.log(data)
             showCartCount(data.cart)
             $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
             $('.pop-up-1 .pop-up-text').text(data.msg)
         }, 'json')
 
@@ -107,10 +107,10 @@ $(function () {
     product_arrang.on('click', '.btn_collect', function () {
         let psid = $(this).closest('.beer-product').attr('data-sid')
 
-        $.get('member-collect-api.php',{'action':'add','psid':psid},function(data){
+        $.get('member-collect-api.php', { 'action': 'add', 'psid': psid }, function (data) {
             // console.log(data)
             $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
             $('.pop-up-1 .pop-up-text').text(data.msg)
         }, 'json')
         $(this).addClass('d-none')
@@ -121,10 +121,10 @@ $(function () {
     product_arrang.on('click', '.btn_collect_active', function () {
         let psid = $(this).closest('.beer-product').attr('data-sid')
 
-        $.get('member-collect-api.php',{'action':'delete','psid':psid},function(data){
+        $.get('member-collect-api.php', { 'action': 'delete', 'psid': psid }, function (data) {
             // console.log(data)
             $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
             $('.pop-up-1 .pop-up-text').text(data.msg)
         }, 'json')
         $(this).addClass('d-none')
@@ -136,28 +136,28 @@ $(function () {
     // 關注功能
     // 加入
 
-    btn_attention.on('click','.btn_attention_be',function(){
+    btn_attention.on('click', '.btn_attention_be', function () {
         let tsid = $(this).parent().prev('.product-tag').find('p').attr('data-cate')
         // console.log(tsid)
 
-        $.get('member-attention-api.php',{'action':'add','tsid':tsid},function(data){
+        $.get('member-attention-api.php', { 'action': 'add', 'tsid': tsid }, function (data) {
             // console.log(data)
             $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
             $('.pop-up-1 .pop-up-text').text(data.msg)
         }, 'json')
         $(this).addClass('d-none')
         $(this).next().removeClass('d-none')
     })
     // 取消
-    btn_attention.on('click','.btn_attention_active',function(){
+    btn_attention.on('click', '.btn_attention_active', function () {
         let tsid = $(this).parent().prev('.product-tag').find('p').attr('data-cate')
         // console.log(tsid)
 
-        $.get('member-attention-api.php',{'action':'delete','tsid':tsid},function(data){
+        $.get('member-attention-api.php', { 'action': 'delete', 'tsid': tsid }, function (data) {
             // console.log(data)
             $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
             $('.pop-up-1 .pop-up-text').text(data.msg)
         }, 'json')
         $(this).addClass('d-none')
@@ -206,37 +206,28 @@ $(function () {
 
 
     // ----------------------------element scrollin視窗滾動-----------------------------//
-
-    $(window).scroll(function () {
-
-        // 桌機板 width > 992
-        if ($(window).width() >= 992) {
-
-            let userScrollTop = $(window).scrollTop()
-            let halfWindowHeight = $(window).height() / 4 * 3
-            $('.w-scrollin-start').each(function () {
-                let elemPos = $(this).offset().top
-                if (elemPos < userScrollTop + halfWindowHeight) {
-                    $(this).addClass('w-scrollin-on')
-                }else{
-                    $(this).removeClass('w-scrollin-on')
-                }
-            })
-            $('.w-scrollin-anima').each(function () {
-                let elemPos = $(this).offset().top
-                if (elemPos < userScrollTop + halfWindowHeight) {
-                    $(this).addClass('w-scrollin-on animate__animated animate__flipInX')
-                }
-            })
-
-        }
-
-    })
-
-    if ($(window).width() < 992) {
-        $('.w-scrollin-start').removeClass('w-scrollin-start')
-        $('.w-scrollin-anima').addClass('w-scrollin-on animate__animated animate__flipInX')
+    function pageAnima() {
+        let userScrollTop = $(window).scrollTop()
+        let halfWindowHeight = $(window).height() / 4 * 3
+        $('.w-scrollin-start').each(function () {
+            let elemPos = $(this).offset().top
+            if (elemPos < userScrollTop + halfWindowHeight) {
+                $(this).addClass('w-scrollin-on')
+            } else {
+                $(this).removeClass('w-scrollin-on')
+            }
+        })
+        $('.w-scrollin-anima').each(function () {
+            let elemPos = $(this).offset().top
+            if (elemPos < userScrollTop + halfWindowHeight) {
+                $(this).addClass('w-scrollin-on animate__animated animate__flipInX')
+            }
+        })
     }
+    pageAnima()
+    $(window).scroll(function () {
+        pageAnima()
+    })
 
 
 

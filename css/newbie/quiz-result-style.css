@@ -4,7 +4,7 @@ body {
 
 /* ------------------------------推薦商品------------------------------ */
 
-.quiz-result-wrap {
+.quiz-result-wrapper {
     width: 100%;
     background: url(../../images/common/bg/marble-bg.png);
     background-size: 100% auto;
@@ -323,13 +323,13 @@ body {
 /* 手機版 */
 
 @media (max-width: 991px) {
-    .quiz-result-wrap .result-title {
+    .quiz-result-wrapper .result-title {
         font-size: 2.6rem;
     }
-    .quiz-result-wrap .result-title span {
+    .quiz-result-wrapper .result-title span {
         font-size: 3.0rem;
     }
-    .quiz-result-wrap .result-info {
+    .quiz-result-wrapper .result-info {
         margin: 0 auto;
         width: 90%;
         font-size: 1.6rem;
@@ -440,9 +440,6 @@ body {
 .quiz-result-wrap .related-comment-wrap {
     width: 100%;
     border-top: 25px solid var(--gold);
-    background: url(../../images/common/bg/marble-bg.png);
-    background-size: 100% auto;
-    padding-bottom: 100px;
 }
 
 /* 手機版 */

@@ -86,7 +86,7 @@ $('.add-cart').on('click', function () {
 // 加入
 function collectProduct() {
     let btn = $(event.currentTarget)
-    let psid = btn.closest('.beer-product').attr('data-sid')
+    let psid = btn.closest('.spring-product').attr('data-sid')
 
     $.get('member-collect-api.php', {
         'action': 'add',
@@ -104,7 +104,7 @@ function collectProduct() {
 // 取消
 function cancelCollectProduct() {
     let btn = $(event.currentTarget)
-    let psid = btn.closest('.beer-product').attr('data-sid')
+    let psid = btn.closest('.spring-product').attr('data-sid')
 
     $.get('member-collect-api.php', {
         'action': 'delete',

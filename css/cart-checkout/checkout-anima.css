@@ -1,19 +1,27 @@
-.checkout .checkout-title {
-    animation:titledown 1.2s ;
+.checkout .checkout-title.anima {
+    animation:titledown 1.2s .2s;
     animation-fill-mode: forwards;
 }
 
-.checkout .checkout-title img {
-    animation:pipileave 1.2s 1.3s;
+.checkout .checkout-title img.anima {
+    opacity: 1;
+    animation:pipileave 1.2s 1.5s;
     animation-fill-mode: forwards;
+}
+
+.checkout .checkout-title.show {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 @keyframes titledown {
     0% {
-        transform: translateY(-120%);
+        transform: translateY(-180%);
+        opacity: 0;
     }
     100% {
         transform: translateY(0);
+        opacity: 1;
     }
 }
 
@@ -27,6 +35,49 @@
         opacity: 0;
     }
 }
+
+.checkout .checkout-step.anima {
+    animation: toup .5s .6s forwards;
+}
+
+.checkout .checkout-step.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.checkout #select-ship.anima {
+    animation: toup2 .5s .8s forwards;
+}
+
+.checkout #select-ship.show {
+    opacity: 1;
+    margin-top: 0;
+}
+
+
+@keyframes toup {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toup2 {
+    0% {
+        opacity: 0;
+        margin-top: 15px;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
 
 .checkout .step-1.anima {
     animation: tobig .8s infinite;
@@ -51,6 +102,11 @@
         transform: scale(1);
     }
 }
+
+
+
+
+
 .text-wrap {
     width: 300px;
 }

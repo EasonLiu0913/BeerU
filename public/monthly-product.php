@@ -29,16 +29,16 @@ if ($psid != 0) {
 
 
     // 相關商品
-    $c_SQL = "SELECT * FROM `products` WHERE `sid` = 133 AND `sid` = $psid";
+    $c_SQL = "SELECT * FROM `products` WHERE `sid` = 133";
     $c_row = $pdo->query($c_SQL)->fetch();
     $c_row_sid = $c_row['sid'];
 
-    $t_SQL = "SELECT * FROM `products` WHERE `sid` = 21 AND `sid` =  $psid";
+    $t_SQL = "SELECT * FROM `products` WHERE `sid` = 21";
     $t_row = $pdo->query($t_SQL)->fetch();
     $t_row_sid = $t_row['sid'];
 
 
-    $b_SQL = "SELECT * FROM `products` WHERE `sid` = 99 AND `sid` =  $psid";
+    $b_SQL = "SELECT * FROM `products` WHERE `sid` = 99 ";
     $b_row = $pdo->query($b_SQL)->fetch();
     $b_row_sid = $b_row['sid'];
 
@@ -117,7 +117,7 @@ if ($psid != 0) {
                     <div class="pro-name animatable fadeInUp">
                         <div class="country d-flex align-items-center">
                             <p><?= $row['country_name'] ?></p>
-                            <img class="c-pic" src="../images/country/<?= $row['country_pic'] ?>" alt="">
+                            <img class="c-pic" src="../images/glori_images/flag_japan_circle.svg" alt="">
                         </div>
                         <p class="c-name d-none d-lg-block"><?= $row['c_name'] ?></p>
                         <p class="e-name d-none d-lg-block"><?= $row['e_name'] ?></p>
@@ -329,23 +329,23 @@ if ($psid != 0) {
         <div class="row spring-wrap">
             <div class="left-spring col-md-6">
                 <!-- 3月推薦 -->
-                <div class="spring-product col">
+                <div class="spring-product col" data-sid="133">
                     <div class="spring-img-wrap">
                         <div class="circle-wrap" href="#">
                             <div class="circle"></div>
-                            <a href="each-product.php?psid=<?= $psid = 133 ?>"><img class="animatable fadeInUp" src="../images/glori_images/popular_march.png"></a>
+                            <a href="each-product.php?psid=133"><img class="animatable fadeInUp" src="../images/glori_images/popular_march.png"></a>
                         </div>
                     </div>
                     <p class="title">琳德曼．水蜜桃酸啤</p>
                     <h5 class="title2 mb-2">Lindemans-Pecheresse</h5>
                     <!-- 收藏按鈕 -->
-                    <div class="collect data-sid=<?= $c_row['sid'] ?>">
+                    <div class="collect" data-sid="<?= $c_row['sid'] ?>">
                         <?php if (!isset($_SESSION['user'])) : ?>
                             <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
                         <?php else : ?>
                             <?php if (in_array($c_row['sid'], $c_arr)) : ?>
-                                <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                                 <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                                <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                             <?php else : ?>
                                 <button class="btn_collect2" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
                                 <button class="btn_collect2_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
@@ -354,11 +354,11 @@ if ($psid != 0) {
                     </div>
                 </div>
                 <!-- 4月推薦 -->
-                <div class="spring-product col">
+                <div class="spring-product col" data-sid="21">
                     <div class="spring-img-wrap">
                         <div class="circle-wrap" href="#">
                             <div class="circle"></div>
-                            <a href="each-product.php?psid=<?= $psid = 21 ?>">
+                            <a href="each-product.php?psid=21">
                                 <img class="animatable fadeInUp" src="../images/glori_images/popular_april.png">
                             </a>
                         </div>
@@ -366,13 +366,13 @@ if ($psid != 0) {
                     <p class="title">源流．義式葡萄愛爾</p>
                     <h5 class="title2 mb-2">Far Yeast-Grapevine</h5>
                     <!-- 收藏按鈕 -->
-                    <div class="collect data-sid=<?= $t_row['sid'] ?>">
+                    <div class="collect" data-sid="<?= $t_row['sid'] ?> ">
                         <?php if (!isset($_SESSION['user'])) : ?>
                             <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
                         <?php else : ?>
                             <?php if (in_array($t_row['sid'], $c_arr)) : ?>
-                                <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                                 <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                                <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                             <?php else : ?>
                                 <button class="btn_collect2" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
                                 <button class="btn_collect2_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
@@ -381,11 +381,11 @@ if ($psid != 0) {
                     </div>
                 </div>
                 <!-- 5月推薦 -->
-                <div class="spring-product col">
+                <div class="spring-product col" data-sid="99">
                     <div class="spring-img-wrap">
                         <div class="circle-wrap" href="#">
                             <div class="circle"></div>
-                            <a href="each-product.php?psid=<?= $psid = 99 ?>">
+                            <a href="each-product.php?psid=99">
                                 <img class="animatable fadeInUp" src="../images/glori_images/popular_may.png">
                             </a>
                         </div>
@@ -393,13 +393,13 @@ if ($psid != 0) {
                     <p class="title">美人魚．野生粉紅啤</p>
                     <h5 class="title2 mb-2">La Sirène-Rosè Wild</h5>
                     <!-- 收藏按鈕 -->
-                    <div class="collect data-sid=<?= $b_row['sid'] ?>">
+                    <div class="collect" data-sid="<?= $b_row['sid'] ?> ">
                         <?php if (!isset($_SESSION['user'])) : ?>
                             <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
                         <?php else : ?>
                             <?php if (in_array($b_row['sid'], $c_arr)) : ?>
-                                <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                                 <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                                <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                             <?php else : ?>
                                 <button class="btn_collect2" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
                                 <button class="btn_collect2_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>

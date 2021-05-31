@@ -155,10 +155,12 @@ $(document).ready(function () {
 
                     mouseenter: function () {
                         $('.talk01').css('transform', 'scale(1) translate(-80px, -80px)').css('opacity', '1').css('transition', '0.5s')
+                        $('.woman01-img').addClass('WomanMove')
                     },
                     mouseleave: function () {
                         $('.talk01').css('transform', 'scale(0.5)  translate(-80px, -80px)').css('opacity', '0').css('transition', '0.5s')
-
+                        $('.woman01-img').removeClass('WomanMove')
+                        
                     }
 
                 })
@@ -167,9 +169,11 @@ $(document).ready(function () {
 
                     mouseenter: function () {
                         $('.talk02').css('transform', 'scale(1) translate(50px, -60px)').css('opacity', '1').css('transition', '0.5s')
+                        $('.woman02-img').addClass('WomanMove')
                     },
                     mouseleave: function () {
                         $('.talk02').css('transform', 'scale(0.5) translate(50px, -60px)').css('opacity', '0').css('transition', '0.5s')
+                        $('.woman02-img').removeClass('WomanMove')
 
                     }
 
@@ -179,9 +183,13 @@ $(document).ready(function () {
 
                     mouseenter: function () {
                         $('.talk03').css('transform', 'scale(1) translate(50px, -80px)').css('opacity', '1').css('transition', '0.5s')
+                        $('.woman03-img').addClass('WomanMove')
                     },
                     mouseleave: function () {
                         $('.talk03').css('transform', 'scale(0.5) translate(50px, -80px)').css('opacity', '0').css('transition', '0.5s')
+                        $('.woman03-img').removeClass('WomanMove')
+
+                        
 
                     }
 
@@ -191,9 +199,11 @@ $(document).ready(function () {
 
                     mouseenter: function () {
                         $('.talk04').css('transform', 'scale(1) translate(30px, -60px)').css('opacity', '1').css('transition', '0.5s')
+                        $('.woman04-img').addClass('WomanMove')
                     },
                     mouseleave: function () {
                         $('.talk04').css('transform', 'scale(0.5) translate(30px, -60px)').css('opacity', '0').css('transition', '0.5s')
+                        $('.woman04-img').removeClass('WomanMove')
 
                     }
 
@@ -260,10 +270,12 @@ $(document).ready(function () {
 
                     mouseenter: function () {
                         $('.talk01').css('transform', 'scale(1) translate(-80px, -80px)').css('opacity', '1').css('transition', '0.5s')
+                        $('.woman01-img').addClass('WomanMove')
                     },
                     mouseleave: function () {
                         $('.talk01').css('transform', 'scale(0.5)  translate(-80px, -80px)').css('opacity', '0').css('transition', '0.5s')
-
+                        $('.woman01-img').removeClass('WomanMove')
+                        
                     }
 
                 })
@@ -272,9 +284,11 @@ $(document).ready(function () {
 
                     mouseenter: function () {
                         $('.talk02').css('transform', 'scale(1) translate(50px, -60px)').css('opacity', '1').css('transition', '0.5s')
+                        $('.woman02-img').addClass('WomanMove')
                     },
                     mouseleave: function () {
                         $('.talk02').css('transform', 'scale(0.5) translate(50px, -60px)').css('opacity', '0').css('transition', '0.5s')
+                        $('.woman02-img').removeClass('WomanMove')
 
                     }
 
@@ -284,9 +298,13 @@ $(document).ready(function () {
 
                     mouseenter: function () {
                         $('.talk03').css('transform', 'scale(1) translate(50px, -80px)').css('opacity', '1').css('transition', '0.5s')
+                        $('.woman03-img').addClass('WomanMove')
                     },
                     mouseleave: function () {
                         $('.talk03').css('transform', 'scale(0.5) translate(50px, -80px)').css('opacity', '0').css('transition', '0.5s')
+                        $('.woman03-img').removeClass('WomanMove')
+
+                        
 
                     }
 
@@ -296,9 +314,11 @@ $(document).ready(function () {
 
                     mouseenter: function () {
                         $('.talk04').css('transform', 'scale(1) translate(30px, -60px)').css('opacity', '1').css('transition', '0.5s')
+                        $('.woman04-img').addClass('WomanMove')
                     },
                     mouseleave: function () {
                         $('.talk04').css('transform', 'scale(0.5) translate(30px, -60px)').css('opacity', '0').css('transition', '0.5s')
+                        $('.woman04-img').removeClass('WomanMove')
 
                     }
 
@@ -714,14 +734,14 @@ $(document).ready(function () {
     }
 
     if ($(window).width() < 992){
-        $(this).children('.item-flag').css('transform','rotate(20deg) translate(90px,38px)').css('transition','.4s');
+        $(this).children('.item-flag').css('transform','rotate(20deg) translate(90px,55px)').css('transition','.4s');
 
 
     }
 
        $(this).children('.item-img').css('transform','translate(0px,-20px)').css('transition','.4s')
 
-       $(this).children('.item-intro').css('color','var(--pink)').css('transition','.4s')
+       $(this).children('.item-intro').css('color','var(--yellow)').css('transition','.4s')
 
 
     },
@@ -920,42 +940,80 @@ $(window).scroll(function () {
 
 
 $('.pipi-body').on({
-  
-   
+         mouseenter: function(){
+
+            if ($(window).width() >= 992) {
+
+                $('.pipi-arrow').css('transform','translateX(-500px)').css('opacity','0').css('transition','0.6s');
+
+                setTimeout(() => {
+                 $('.pipi-arrow').css('transform','translateX(-30px)').css('opacity','0').css('transition','0.01s');
+                
+                },500)
+            
+            }
+
+
+            if ($(window).width() < 992) {
+                $('.pipi-arrow').css('transform','translateX(-500px)').css('opacity','0').css('transition','0.6s');
+
+                setTimeout(() => {
+                    $('.pipi-arrow').css('transform','translateX(-20px)').css('opacity','0').css('transition','0.01s');
+
+                },500)
+
+
+            }
+            
     
-    click: function(){
+        },
+    
+        mouseleave: function(){
 
-
-        if ($(window).width() >= 992) {
-            $('.pipi-arrow').css('transform','translateX(-500px)').css('opacity','0').css('transition','0.8s');
-
-            setTimeout(() => {
-                $('.pipi-arrow').css('transform','translateX(-30px)').css('opacity','0').css('transition','0.1s');
-
-            },1000)
 
             setTimeout(() => {
                 $('.pipi-arrow').css('opacity','1').css('transition','1s');
-
-            },1500)
+            
+            },1200)
+    
+           
+    
         }
+        
+    
+    // click: function(){
 
-        if ($(window).width() < 992) {
-            $('.pipi-arrow').css('transform','translateX(-500px)').css('opacity','0').css('transition','0.8s');
 
-            setTimeout(() => {
-                $('.pipi-arrow').css('transform','translateX(-20px)').css('opacity','0').css('transition','0.1s');
+    //     if ($(window).width() >= 992) {
+    //         $('.pipi-arrow').css('transform','translateX(-500px)').css('opacity','0').css('transition','0.8s');
 
-            },1000)
+    //         setTimeout(() => {
+    //             $('.pipi-arrow').css('transform','translateX(-30px)').css('opacity','0').css('transition','0.1s');
 
-            setTimeout(() => {
-                $('.pipi-arrow').css('opacity','1').css('transition','1s');
+    //         },1000)
 
-            },1500)
+    //         setTimeout(() => {
+    //             $('.pipi-arrow').css('opacity','1').css('transition','1s');
 
-         }
+    //         },1500)
+    //     }
 
-    }
+    //     if ($(window).width() < 992) {
+    //         $('.pipi-arrow').css('transform','translateX(-500px)').css('opacity','0').css('transition','0.8s');
+
+    //         setTimeout(() => {
+    //             $('.pipi-arrow').css('transform','translateX(-20px)').css('opacity','0').css('transition','0.1s');
+
+    //         },1000)
+
+    //         setTimeout(() => {
+    //             $('.pipi-arrow').css('opacity','1').css('transition','1s');
+
+    //         },1500)
+
+    //      }
+
+    // }
 
 
 

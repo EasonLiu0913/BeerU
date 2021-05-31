@@ -16,6 +16,11 @@ $f = $pdo->query($f_SQL)->fetch();
 $totalPriceSql = "SELECT SUM(quantity * price) AS `total` FROM `order_detail` WHERE `fund_sid` > 0";
 $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
 
+//目前贊助次數
+$totalBidSql = "SELECT SUM(quantity) AS `bid` FROM `order_detail` WHERE `fund_sid` > 0";
+$rowTotalBid = $pdo->query($totalBidSql)->fetch();
+
+
 
 // if ($sid == 0) {
 //     header('location:http://localhost/beeru/public/fund.php');
@@ -67,7 +72,7 @@ $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
                         </div>
                     </div>
                     <div class="sub-intro mt-2">
-                        <p>贊助人數 | 6215 </p>
+                        <p>贊助次數 | <?=$rowTotalBid['bid']?>次</p>
                         <p>剩餘時間 | <span id="countdown"></span></p>
                         <p>計畫截止日| <?= $f['end_date'] ?></p>
                     </div>
@@ -117,8 +122,8 @@ $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
                         <button class="add"><i class="fas fa-plus"></i></button>
                     </div>
 
-                    <p><i class="fas fa-exclamation-circle"></i>小提醒：最低金額為贊助選項價格。</p>
-                    <p> 可向上加碼，以100元為單位，幫助計畫加速成功。</p>
+                    <p><i class="fas fa-exclamation-circle"></i>小提醒：最低金額為贊助選項價格。
+可向上加碼，以100元為單位，幫助計畫加速成功。</p>
                     <p><i class="fas fa-medal"></i>啤啤送好禮：加碼500元以上，可增加酒仙指數5%。</p>
 
                 </div>
@@ -143,7 +148,7 @@ $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
 <!-- my script -->
 <script>
     //  倒數計畫計時器 
-    var countDownDate = new Date("May 30, 2021 00:00:00").getTime();
+    var countDownDate = new Date("June 25, 2021 00:00:00").getTime();
     var x = setInterval(function() {
         var now = new Date().getTime();
 

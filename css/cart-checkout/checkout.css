@@ -1,3 +1,7 @@
+body {
+    background-color: #fff;
+}
+
 .checkout {
     width: 100%;
     background-color: #fff;
@@ -24,6 +28,7 @@
 .checkout .checkout-title {
     background: url(../../images/common/h1_2_b.svg) no-repeat center center;
     background-size: contain;
+    opacity: 0;
 
 }
 
@@ -34,6 +39,7 @@
     top: -60%;
     left: 41.5%;
     transform: rotate(45deg);
+    opacity: 0;
 }
 
 
@@ -127,6 +133,7 @@
     text-align: center;
     line-height: 34px;
     padding: 0;
+    opacity: 0;
 }
 
 .checkout .checkout-step::before {
@@ -162,6 +169,7 @@
 /* ------------------------物流------------------------ */
 .checkout #select-ship {
     display: none;
+    opacity: 0;
 }
 
 .checkout .shiptitle, .recipient-title, .paytitle {

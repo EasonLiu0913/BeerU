@@ -448,7 +448,7 @@ $page_title = '啤女BeerU:新手入門';
                     <p>品飲會</p>
                 </div>
                 <img class="map-icon animatable bounceIn" src="../images/glori_images/flavor-icon.svg">
-                <p class="guide-intro animatable fadeInUp">喜歡甜的、酸的、苦的；清爽順口的、果香明顯的、麥香濃厚的、酒花香氣奔放的、或是酒精感明顯的；讓我們來幫您尋味。
+                <p class="guide-intro animatable fadeInUp">在啤女的品飲會，將品嚐到世界各國不同的精釀啤酒。喜歡甜的、酸的、苦的；清爽順口的、果香明顯的、麥香濃厚的、酒花香氣奔放的、或是酒精感明顯的；讓我們來幫您尋味。
                 </p>
                 <div class="know-more-wrap">
                     <a href="event.php">

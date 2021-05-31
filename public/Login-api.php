@@ -20,7 +20,7 @@ if(isset($_POST['account'])) {
     $a_stmt = $pdo->prepare($a_sql);
     $a_stmt->execute([ $_POST['account']]);
     $row = $a_stmt->fetch();
-
+ 
 
     if(empty($row)) {
         echo json_encode($output, JSON_UNESCAPED_UNICODE);
