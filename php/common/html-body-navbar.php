@@ -51,8 +51,15 @@
 
                         <li class="user-pic">
                             <a href="member.php"><img src="<?= WEB_ROOT ?>/images/user/<?= htmlentities($_SESSION['user']['user-pic']) ?>" alt=""></a>
-                            <div class="havegift"><i class="fas fa-gift"></i></div>
+                            <div class="havegift">
+                                <i class="fas fa-gift"></i>
+                            </div>
                         </li>
+                        <div class="gift-notice">
+                            <p>恭喜!成就達標!</p>
+                            <p>快到<a href="member.php?memberAchievement"><i class="fas fa-hand-point-right"></i>我的成就</a></p>
+                            <p>領禮物囉!</p>
+                        </div>
 
 
 

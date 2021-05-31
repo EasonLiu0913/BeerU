@@ -7,10 +7,14 @@
 .all-product .product-banner-box {
     opacity: 0;
     transition: .5s;
+    height: 70vh;
+    max-height: 780px;
 }
 
 .all-product .product-banner-box.w-opacity-1 {
     opacity: 1;
+    position: relative;
+    z-index: 10;
 }
 
 .all-product .product-banner-02 {
@@ -44,7 +48,7 @@
     min-height: 240px;
     background: url(../../images/common/deco-draw-01.svg) no-repeat;
     position: absolute;
-    top: 5%;
+    top: -5%;
     left: 5%;
 }
 
@@ -72,7 +76,7 @@
     min-height: 240px;
     background: url(../../images/common/deco-draw-04.svg) no-repeat;
     position: absolute;
-    top: -40px;
+    top: -60px;
     left: 5%;
 }
 
@@ -129,7 +133,7 @@
     position: absolute;
     z-index: -1;
     right: -10%;
-    bottom: -20px;
+    bottom: -5px;
     background: url(../../images/common/deco-draw-03.svg) no-repeat;
 }
 

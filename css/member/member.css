@@ -1,3 +1,6 @@
+body {
+    background-color: #fff;
+}
 .member {
     background-color: #fff;
     color: var(--blue);
@@ -21,6 +24,7 @@
     background: url(../../images/common/h1_4_b.svg) no-repeat center center;
     background-size: contain;
     transform: translateY(-150%);
+    opacity: 0;
 
 }
 
@@ -1216,7 +1220,20 @@
 
 /* 額滿字 */
 .member .fullsign {
-    color: var(--red);
+    color: #fff;
+    background-color: var(--red);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.5rem;
+    letter-spacing: 0.15rem;
+    margin-bottom: 5px;
+    padding: 5px;
+    transition: .3s;
+    transform: translateY(0);
+}
+
+.member .fullsign:hover {
+    transform: translateY(-3px);
 }
 
 

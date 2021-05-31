@@ -27,14 +27,15 @@ TxtType.prototype.tick = function() {
 
     if (this.isDeleting) { delta /= 2; }
 
-    if (!this.isDeleting && this.txt === fullTxt) {
-    delta = this.period;
-    this.isDeleting = true;
-    } else if (this.isDeleting && this.txt === '') {
-    this.isDeleting = false;
-    this.loopNum++;
-    delta = 500;
-    }
+    // 重複來回
+    // if (!this.isDeleting && this.txt === fullTxt) {
+    // delta = this.period;
+    // this.isDeleting = true;
+    // } else if (this.isDeleting && this.txt === '') {
+    // this.isDeleting = false;
+    // this.loopNum++;
+    // delta = 500;
+    // }
 
     setTimeout(function() {
     that.tick();

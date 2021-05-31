@@ -39,7 +39,7 @@ if($sid== 0){
     <!-- event品飲會:花絮回顧 -->
     <section class="event join">
         <!-- 2.banner -->
-        <div class="container event-banner pd0   animatable fadeInUp">
+        <div class="container event-banner pd0">
             <!-- 2.1關注按鈕+分享 -->
             <div class="row justify-content-end justify-content-md-end align-items-end
             flex-nowrap">
@@ -203,7 +203,7 @@ if($sid== 0){
         <!-- 3.content -->
         <div class="container event-content px-5">
             <!-- 3.1.title -->
-            <div class='name   animatable fadeInUp'>
+            <div class='name'>
                 <p>酒花國度的美式精釀啤酒</p>
                 <hr>
             </div>
@@ -211,7 +211,7 @@ if($sid== 0){
             <div class='row mx-0 align-items-stretch'>
                 <!--時間+地點-->
                 <div class="timelocation col-md-6">
-                    <div class="time   animatable fadeInUp">
+                    <div class="time">
                         <div class="d-flex align-items-center">
                             <p class='t1-i'><i class="far fa-clock"></i>活動時間</p>
                             <!-- <div class='btn_join over calender'><a href=""><i class="fas fa-calendar-plus"></i>加入行事曆</a>
@@ -219,7 +219,7 @@ if($sid== 0){
                         </div>
                         <p class='t1-c'>2021-05-09(日) 16:00 ~ 19:00</p>
                     </div>
-                    <div class="location   animatable fadeInUp">
+                    <div class="location">
                         <p class='t1-i'><i class="fas fa-map-marker-alt"></i>活動地點</p>
                         <p class='t1-c'>悄悄話 chinese whispers
                             <br> <span>106台北市大安區仁愛路四段345巷2弄11號</span>
@@ -230,13 +230,13 @@ if($sid== 0){
                 <div
                     class="row mx-5 mx-md-0 px-2 quotaprice col-md-6 justify-content-center flex-sm-nowrap flex-md-wrap">
                     <!-- <div class="col-sm-6 col-md-12 block quota">剩餘名額：0/20</div> -->
-                    <div class="col-sm-6 col-md-12 block price   animatable fadeInUp">價格：NT$200</div>
+                    <div class="col-sm-6 col-md-12 block price">價格：NT$200</div>
                 </div>
             </div>
 
         </div>
         <!-- 4.overview -->
-        <div class="row mx-0 px-5   animatable fadeInUp">
+        <div class="row mx-0 px-5 ">
             <div class="overview">
             “ 美國啤酒為市場上最主流的啤酒之一，美式精釀常兼具著復古、大膽與創新，以當地的啤酒花或麥芽得到新的詮釋和演繹，本次活動會以美國歷史作為開端走進花花世界的美國精釀啤酒。”
             </div>

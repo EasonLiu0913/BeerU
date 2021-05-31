@@ -140,8 +140,8 @@
     
                     <div class="LogIn-title">
                         <h3>用啤女帳戶登入</h3>
-                    </div> --> 
-    
+                    </div>  -->
+   
     
                     <!-- 登入表單 -->
                     <!-- <form class="LogIn-content-wrap" name="Login" method="post"  novalidate onsubmit="checkform_Login(); return false;">
@@ -156,15 +156,15 @@
                         <i class="fas fa-lock lock-icon01"></i>
                         <input class="input-btn" type="password" placeholder="密碼" id="password" name="password">
                         </div>
-     -->
+ 
     
     
-                        <!-- <div class="wrong-alert d-flex">
+                        <div class="wrong-alert d-flex">
                         <i class="far fa-times-circle"></i>
                         <p>帳號或密碼錯誤</p>
-                        </div> -->
+                        </div>
     
-                        <!-- <button class="LogIn-btn02 Login" type="submit"> 登入</button>
+                        <button class="LogIn-btn02 Login" type="submit"> 登入</button>
     
                     </form>
     
@@ -312,14 +312,14 @@
     
                 
                <!-- 載入中 -->
-                <div class="log-content Loading-page">
+                <!-- <div class="log-content Loading-page">
                    <div class="loader"></div>
                    <p>註冊中...</p>
-                </div>
+                </div> -->
 
 
                 <!-- 註冊成功畫面 -->
-                <div class="log-content  Sign-Success">
+                <!-- <div class="log-content  Sign-Success">
                    
                     <div class="Success-wrap">
                         <div class="Success-title">
@@ -351,10 +351,70 @@
  
                     </div>
 
-                </div>
+                </div> -->
                     
     
+
+
+            <!-- 忘記密碼畫面 -->
+            <div class="log-content Forget-Password" >
+                <div class="Forget-Password-title">
+                    <h3>忘記密碼</h3>
+                </div>
+
+                <form name="UserEmail" class="UserEmail-wrap" novalidate>
+
+                    <div class="Forget-UserEmail">
+                        <h3>E-mail信箱</h3>
+                        <i class="far fa-envelope email-icon01"></i>
+                        <input class="input-btn" type="email" id="Forget-UserEmail" name="Forget_UserEmail" >
+                    </div>
+                    <div class="send-email-warp d-flex">
+                        <small class="warn-text">請輸入您的電子信箱來傳送驗證碼</small>
+                        <button class="search-email">搜尋</button>
+                    </div>
+                   
+
+                    <div class="Forget-Check">
+                        <h3>請輸入驗證碼</h3>
+                        <input class="input-btn" type="text" id="Forget-UserEmail-Check" name="Forget_UserEmail_Check">
+                        <div class="resend-warp d-flex">
+                            <i class="fas fa-redo-alt"></i>
+                            <button class="resende-code-btn">重新傳送驗證碼</button>
+                        </div>
+
+                    </div>
+
+                    <button class="Forget-next-btn">下一步</button>
+
+                    <div class="backward back04" >
+                        <h3>回上頁</h3>
+                    </div>
+
+                </form>
+
+
+                <form name="ForgetChagePassword" class="ForgetChagePassword-wrap" novalidate>
+
+                    <div class="Forget-change">
+                        <h3>輸入新密碼</h3>
+                        <i class="fas fa-lock lock-icon03"></i>
+                        <input class="input-btn" type="password" id="password" name="forget_change_password">
+                    </div>
+
+                    <div class="Forget-change-again">
+                        <h3>再次輸入密碼</h3>
+                        <i class="fas fa-lock lock-icon03"></i>
+                        <input class="input-btn" type="password" id="password" name="forget_password_again">
+                    </div>
+
+                    <button class="Forget-change-btn">重新修改密碼</button>
+                    
+                </form>
+
     
+            </div>
+               
                     
             </div>      
         </div>

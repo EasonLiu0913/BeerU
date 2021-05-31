@@ -818,25 +818,33 @@ if (isset($_SESSION['cart']['fund'])) {
                     url: url,
                     title: document.title
                 }, document.title, url)
-                $('#select-ship').fadeIn(150)
+                $('#select-ship').addClass('anima').fadeIn(150)
                 $('.step-1').addClass('on anima')
+                $('.checkout .checkout-title').addClass('anima')
+                $('.checkout .checkout-title img').addClass('anima')
+                $('.checkout .checkout-step').addClass('anima')
 
             }
 
             // 刷新的時候偵測網址
-            if (window.location.search.substr(6, 1) == 1) {
-                $('#select-ship').fadeIn(150)
+            else if (window.location.search.substr(6, 1) == 1) {
+                $('#select-ship').fadeIn(150).addClass('show')
                 $('.step-1').addClass('on anima')
+                $('.checkout .checkout-title').addClass('show')
+                $('.checkout .checkout-title img').addClass('show')
+                $('.checkout .checkout-step').addClass('show')
                 reloadData()
 
-            }
-            if (window.location.search.substr(6, 1) == 2) {
+            } else if (window.location.search.substr(6, 1) == 2) {
                 reloadData()
                 checkshipform()
                 $('#select-ship').css('display', 'none')
-                $('#select-payment').fadeIn(150)
+                $('#select-payment').fadeIn(150).addClass('show')
                 $('.step-2').addClass('on anima')
                 $('.step-1').removeClass('on anima')
+                $('.checkout .checkout-title').addClass('show')
+                $('.checkout .checkout-title img').addClass('show')
+                $('.checkout .checkout-step').addClass('show')
             }
 
         } else {

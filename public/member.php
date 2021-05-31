@@ -74,6 +74,14 @@ if (isset($_SESSION['user'])) {
     WHERE a.`fund_sid` > 0 AND a.`member_sid` = $m_sid";
     $fundatten_row = $pdo->query($fundatten_SQL)->fetch();
 
+    // 目前募資到的總額
+    $totalPriceSql = "SELECT SUM(quantity * price) AS `total` FROM `order_detail` WHERE `fund_sid` > 0";
+    $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
+
+
+    // 目前募資的進度百分比
+    $rowNowPercentage = floor(($rowTotalPrice['total'] / 60000) * 100);
+
 
     // 從資料庫抓已預約的品飲會
     $event_SQL = "SELECT j.`event_sid`,e.event_title,e.event_pic_m,e.event_time,e.event_place,e.event_address 
@@ -84,7 +92,7 @@ if (isset($_SESSION['user'])) {
     $event_row = $pdo->query($event_SQL)->fetch();
 
     // 從資料庫抓已關注的品飲會
-    $eventatten_SQL = "SELECT a.`event_sid`,e.event_title,e.event_pic_m,e.event_time,e.event_place,e.event_address 
+    $eventatten_SQL = "SELECT a.`event_sid`,e.event_title,e.event_pic_m,e.event_time,e.event_place,e.event_address,e.event_people 
     FROM `attention` a
     JOIN `event` e ON a.`event_sid` = e.sid 
     WHERE a.`member_sid` = $m_sid ";
@@ -321,19 +329,21 @@ if (isset($_SESSION['user'])) {
                                         <div class="mydata-txt mydata-nickname mb-3">
                                             <p>姓名</p>
                                             <i class="fas fa-user-alt user-icon02"></i>
-                                            <input type="text" class="input-btn" name="nickname" required value="<?= $m_row['nickname'] ?>">
-                                            <!-- <small class="warn"><i class="far fa-times-circle"></i>錯誤</small> -->
+                                            <input type="text" class="input-btn edit_nickname" name="nickname" required value="<?= $m_row['nickname'] ?>">
+                                            <small class="warn"><i class="far fa-times-circle"></i></small>
 
                                         </div>
                                         <div class="mydata-txt mydata-birthday mb-3">
                                             <p>生日</p>
-                                            <input class="input-btn birthday" type="date" name="birthday" required value="<?= $m_row['birthday'] ?>">
-                                            <small class="warn"></small>
+                                            <input class="input-btn edit_birthday" type="date" name="birthday" required value="<?= $m_row['birthday'] ?>">
+                                            <small class="warn"><i class="far fa-times-circle"></i></small>
 
                                         </div>
                                         <div class="mydata-txt mydata-address mb-5">
                                             <p>地址</p>
-                                            <textarea class="input-btn2" name="address" rows="2"><?= $m_row['address'] ?></textarea>
+                                            <textarea class="input-btn2 edit_address" name="address" rows="2"><?= $m_row['address'] ?></textarea>
+                                            <small class="warn"><i class="far fa-times-circle"></i></small>
+
 
 
                                         </div>
@@ -611,8 +621,8 @@ if (isset($_SESSION['user'])) {
 
                                                             <div class="edit-buttons-wrap d-none">
                                                                 <div class="edit-buttons d-flex flex-wrap align-content-center px-0 justify-content-center ">
-                                                                    <button class="btn_comment-confirm" onclick="commentProduct('edit')">送出</button>
-                                                                    <button class="btn_comment-cancel" onclick="canceleditComment()">取消</button>
+                                                                    <button class="btn_comment-confirm mx-1 mx-lg-0" onclick="commentProduct('edit')">送出</button>
+                                                                    <button class="btn_comment-cancel mx-1 mx-lg-0" onclick="canceleditComment()">取消</button>
                                                                 </div>
 
                                                             </div>
@@ -719,7 +729,17 @@ if (isset($_SESSION['user'])) {
 
                                             <?php if (!empty($eventatten_row)) : ?>
 
-                                                <?php foreach ($eventatten_row as $eva) : ?>
+                                                <?php foreach ($eventatten_row as $eva) :
+
+                                                    $esid = $eva['event_sid'];
+                                                    $totalpeople_SQL = "SELECT SUM(`total_p`) FROM `event_join` WHERE `event_sid` = $esid";
+                                                    $totalpeople = $pdo->query($totalpeople_SQL)->fetch(PDO::FETCH_NUM)[0];
+                                                    $left_people = $eva['event_people'];
+                                                    if (!empty($totalpeople)) {
+                                                        $left_people = $eva['event_people'] - $totalpeople;
+                                                    };
+
+                                                ?>
                                                     <!-- 單個活動 -->
                                                     <div class="event-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="<?= $eva['event_sid'] ?>">
 
@@ -763,8 +783,13 @@ if (isset($_SESSION['user'])) {
 
                                                         <!-- 取消 -->
                                                         <div class="col-12 col-lg-1 member-button event-button d-flex  align-items-center px-0 justify-content-center">
-                                                            <a href="event-join.php?sid=<?= $eva['event_sid'] ?>"><button class="btn_event-cancel">報名</button></a>
-                                                            <p class="fullsign d-none">已額滿</p>
+                                                            <?php if ($left_people > 0) : ?>
+                                                                <a href="event-join.php?sid=<?= $eva['event_sid'] ?>"><button class="btn_event-cancel">報名</button></a>
+                                                            <?php elseif ($left_people == 0) : ?>
+                                                                <a href="event-join.php?sid=<?= $eva['event_sid'] ?>">
+                                                                    <p class="fullsign">已額滿</p>
+                                                                </a>
+                                                            <?php endif; ?>
                                                         </div>
 
                                                     </div>
@@ -834,7 +859,7 @@ if (isset($_SESSION['user'])) {
                                                             <p class="title">目前進度</p>
                                                         </div>
                                                         <div class="col-9 col-lg-12 thisschedule px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                            <p>50%</p>
+                                                            <p><?= $rowNowPercentage ?>%</p>
                                                         </div>
                                                     </div>
 
@@ -904,7 +929,7 @@ if (isset($_SESSION['user'])) {
                                                             <p class="title">目前進度</p>
                                                         </div>
                                                         <div class="col-9 col-lg-12 thisschedule px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                            <p>50%</p>
+                                                            <p><?= $rowNowPercentage ?>%</p>
                                                         </div>
                                                     </div>
 
@@ -1247,9 +1272,9 @@ if (isset($_SESSION['user'])) {
                                                             </div>
 
                                                             <!-- 按鈕 -->
-                                                            <div class="col-12 col-lg-2 member-button fund-button d-flex flex-lg-column align-items-center px-0 justify-content-center">
-                                                                <button>取消</button>
-                                                                <button>留言</button>
+                                                            <div class="col-12 col-lg-2 member-button order-button d-flex flex-lg-column align-items-center px-0 justify-content-center mt-4 mt-lg-0">
+                                                                <button class="mx-1 mx-lg-0">取消</button>
+                                                                <button class="mx-1 mx-lg-0">留言</button>
                                                             </div>
 
                                                         </div>
@@ -1464,7 +1489,6 @@ if (isset($_SESSION['user'])) {
 
 
 <script>
-    
     function scrollToTop() {
         $('html, body').animate({
             scrollTop: 0
@@ -1883,6 +1907,40 @@ if (isset($_SESSION['user'])) {
 
 
     // 會員資料功能---- 編輯資料&重設密碼-----------------------------------------------------------------------
+    const $edit_nickname = $('.edit_nickname');
+    const $edit_birthday = $('.edit_birthday');
+    const $edit_address = $('.edit_address');
+
+    const $oldPassword = $('.oldPassword')
+    const $resetPassword = $('.resetPassword');
+    const $resetPassword_again = $('.resetPassword-again');
+
+    const password_fileds = [$oldPassword, $resetPassword, $resetPassword_again];
+
+    const edit_fileds = [$edit_nickname, $edit_birthday];
+
+    //初始錯誤狀態
+    $('.member .warn').css('display', 'none');
+
+
+    //初始狀態
+    password_fileds.forEach(el => {
+
+        el.css('border', '1px solid var(--gold)');
+        $('.warn').css('display', 'none');
+
+
+    });
+
+
+    edit_fileds.forEach(el => {
+
+        el.css('border', '1px solid var(--gold)');
+        $('.warn').css('display', 'none');
+
+    })
+
+
     $('.btn_edit-data').on('click', function() {
         $('.mydata').fadeOut(0)
         $('.mydata-edit').fadeIn(150)
@@ -1894,6 +1952,14 @@ if (isset($_SESSION['user'])) {
         $('.mydata').fadeIn(150)
         $('.mobile-title').text('會員資料')
         scrollToTop()
+
+        edit_fileds.forEach(el => {
+
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+
+        })
+
     })
     $('.btn_reset-password').on('click', function() {
         $('.mydata').fadeOut(0)
@@ -1901,14 +1967,23 @@ if (isset($_SESSION['user'])) {
         $('.mobile-title').text('重設我的密碼')
         scrollToTop()
     })
+
     $('.btn_password-cancel').on('click', function() {
         $('.password-reset').fadeOut(0)
         $('.mydata').fadeIn(150)
         $('.mobile-title').text('會員資料')
         scrollToTop()
+
+        password_fileds.forEach(el => {
+
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+
+
+        });
+
+
     })
-
-
 
 
     //設定只能18歲
@@ -1921,14 +1996,47 @@ if (isset($_SESSION['user'])) {
     }
 
     let maxAge = maxYear + '-' + setMonth(maxMonth) + '-' + maxDate;
-    $('.birthday').attr('max', maxAge);
+    $('.edit_birthday').attr('max', maxAge);
 
 
 
     //檢查修改資料
     function checkForm_edit() {
 
+
         let isPass = true;
+
+
+        edit_fileds.forEach(el => {
+
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+
+        })
+
+
+
+        //姓名不可為空
+        if ($edit_nickname.val() == '') {
+
+            isPass = false;
+            $edit_nickname.css('border', '2px solid var(--pink)');
+            $edit_nickname.next('.warn').css('display', 'block').children().text('輸入不可以為空');
+
+
+        }
+
+        //生日不可為空
+        if ($edit_birthday.val() == '') {
+
+            isPass = false;
+            $edit_birthday.css('border', '2px solid var(--pink)');
+            $edit_birthday.next('.warn').css('display', 'block').children().text('輸入不可以為空');
+
+
+        }
+
+
 
         if (isPass)
             $.post(
@@ -1970,30 +2078,21 @@ if (isset($_SESSION['user'])) {
 
     }
 
-    //初始錯誤狀態
-    $('.member .warn').css('display', 'none');
+
 
     // 重設密碼
     function checkform_restPassword() {
 
-        const $oldPassword = $('.oldPassword')
-        const $resetPassword = $('.resetPassword');
-        const $resetPassword_again = $('.resetPassword-again');
+
         let isPass = true;
-
-        const fileds = [$oldPassword, $resetPassword, $resetPassword_again];
-
-
         //初始狀態
-        fileds.forEach(el => {
+        password_fileds.forEach(el => {
 
             el.css('border', '1px solid var(--gold)');
             $('.warn').css('display', 'none');
 
 
         });
-
-
 
 
 
@@ -2012,22 +2111,6 @@ if (isset($_SESSION['user'])) {
 
         }
 
-        //輸入不能為空
-        if ($resetPassword.val() == '' && $resetPassword_again.val() == '') {
-
-            isPass = false;
-
-            $resetPassword.css('border', '2px solid var(--pink)');
-            $resetPassword.next().css('display', 'block').children().text('輸入不可以為空');
-
-            $resetPassword_again.css('border', '2px solid var(--pink)');
-            $resetPassword_again.next().css('display', 'block').children().text('輸入不可以為空');
-
-
-
-
-
-        }
 
         //再次輸入密碼要跟新密碼一樣
         if ($resetPassword.val() != $resetPassword_again.val()) {
@@ -2039,7 +2122,55 @@ if (isset($_SESSION['user'])) {
             $resetPassword_again.next().css('display', 'block').children().text('新密碼不相同');
 
 
+        }
 
+
+        //密碼為 6 碼以上
+        if ($resetPassword.val().length < 6) {
+
+            isPass = false;
+            $resetPassword.css('border', '2px solid var(--pink)');
+            $resetPassword.next().css('display', 'block').children().text('密碼不可小於6碼');
+
+
+        }
+        if ($resetPassword_again.val().length < 6) {
+
+            isPass = false;
+            $resetPassword_again.css('border', '2px solid var(--pink)');
+            $resetPassword_again.next().css('display', 'block').children().text('密碼不可小於6碼');
+
+        }
+
+
+        //輸入不能為空
+        if ($oldPassword.val() == '') {
+
+            isPass = false;
+
+            $oldPassword.css('border', '2px solid var(--pink)');
+            $oldPassword.next().css('display', 'block').children().text('輸入不可以為空');
+
+
+
+        }
+        if ($resetPassword.val() == '') {
+
+            isPass = false;
+
+            $resetPassword.css('border', '2px solid var(--pink)');
+            $resetPassword.next().css('display', 'block').children().text('輸入不可以為空');
+
+
+
+        }
+
+        if ($resetPassword_again.val() == '') {
+
+            isPass = false;
+
+            $resetPassword_again.css('border', '2px solid var(--pink)');
+            $resetPassword_again.next().css('display', 'block').children().text('輸入不可以為空');
 
         }
 
@@ -2779,14 +2910,20 @@ if (isset($_SESSION['user'])) {
         if (a_data.accum_comment == 1) {
             $('.my-comment-a .c-title').text('目前累積')
             $('.my-comment-a .num').text('1筆')
+            $('.my-comment-a .achieveitem-box').removeClass('get')
             $('.my-comment-a .mycircle').addClass('c-30')
-            $('.my-comment-a .geta-text').text('距離領獎還差2筆，加油！')
+            $('.my-comment-a .geta-text').removeClass('ispink').text('距離領獎還差2筆，加油！')
+            $('.my-comment-a button.getachieve').addClass('d-none')
+            $('.my-comment-a button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_comment == 2) {
             $('.my-comment-a .c-title').text('目前累積')
             $('.my-comment-a .num').text('2筆')
+            $('.my-comment-a .achieveitem-box').removeClass('get')
             $('.my-comment-a .mycircle').addClass('c-60')
-            $('.my-comment-a .geta-text').text('距離領獎還差1筆，加油！')
+            $('.my-comment-a .geta-text').removeClass('ispink').text('距離領獎還差1筆，加油！')
+            $('.my-comment-a button.getachieve').addClass('d-none')
+            $('.my-comment-a button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_comment >= 3) {
             $('.my-comment-a .c-title').text('累積3筆')
@@ -2810,14 +2947,20 @@ if (isset($_SESSION['user'])) {
         if (a_data.accum_fund == 1) {
             $('.my-fund-a .c-title').text('目前累積')
             $('.my-fund-a .num').text('1筆')
+            $('.my-fund-a .achieveitem-box').removeClass('get')
             $('.my-fund-a .mycircle').addClass('c-30')
-            $('.my-fund-a .geta-text').text('距離領獎還差2筆，加油！')
+            $('.my-fund-a .geta-text').removeClass('ispink').text('距離領獎還差2筆，加油！')
+            $('.my-fund-a button.getachieve').addClass('d-none')
+            $('.my-fund-a button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_fund == 2) {
             $('.my-fund-a .c-title').text('目前累積')
             $('.my-fund-a .num').text('2筆')
+            $('.my-fund-a .achieveitem-box').removeClass('get')
             $('.my-fund-a .mycircle').addClass('c-60')
-            $('.my-fund-a .geta-text').text('距離領獎還差1筆，加油！')
+            $('.my-fund-a .geta-text').removeClass('ispink').text('距離領獎還差1筆，加油！')
+            $('.my-fund-a button.getachieve').addClass('d-none')
+            $('.my-fund-a button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_fund >= 3) {
             $('.my-fund-a .c-title').text('累積3筆')
@@ -2841,14 +2984,20 @@ if (isset($_SESSION['user'])) {
         if (a_data.accum_event == 1) {
             $('.my-event-a .c-title').text('目前累積')
             $('.my-event-a .num').text('1筆')
+            $('.my-event-a .achieveitem-box').removeClass('get')
             $('.my-event-a .mycircle').addClass('c-30')
-            $('.my-event-a .geta-text').text('距離領獎還差2筆，加油！')
+            $('.my-event-a .geta-text').removeClass('ispink').text('距離領獎還差2筆，加油！')
+            $('.my-event-a button.getachieve').addClass('d-none')
+            $('.my-event-a button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_event == 2) {
             $('.my-event-a .c-title').text('目前累積')
             $('.my-event-a .num').text('2筆')
+            $('.my-event-a .achieveitem-box').removeClass('get')
             $('.my-event-a .mycircle').addClass('c-60')
-            $('.my-event-a .geta-text').text('距離領獎還差1筆，加油！')
+            $('.my-event-a .geta-text').removeClass('ispink').text('距離領獎還差1筆，加油！')
+            $('.my-event-a button.getachieve').addClass('d-none')
+            $('.my-event-a button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_event >= 3) {
             $('.my-event-a .c-title').text('累積3筆')
@@ -2864,9 +3013,10 @@ if (isset($_SESSION['user'])) {
         $('.beeru-nav-bar .havegift').fadeOut(0)
 
         // 禮物小圖判斷
+        showAchievement()
+        $('.beeru-nav-bar .gift-notice').remove()
         if (a_data.consume > 0 || a_data.accum_spend >= 6000 || a_data.accum_comment >= 3 || a_data.accum_event >= 3 || a_data.accum_fund >= 3) {
             $('.haveachieve').fadeIn(150)
-            $('.beeru-nav-bar .havegift').fadeIn(150)
         }
         let brandnumber = a_data.gather.filter(e => e <= 28).length
         let countrynumber = a_data.gather.filter(e => e >= 29 && e <= 43).length
@@ -2874,18 +3024,18 @@ if (isset($_SESSION['user'])) {
 
         if ((a_data.accum_brand == 0 && brandnumber >= 8 && brandnumber < 16) || (a_data.accum_brand > 0 && a_data.accum_brand < 2 && brandnumber >= 16 && brandnumber < 24) || (a_data.accum_brand != 3 && brandnumber == 24)) {
             $('.haveachieve').fadeIn(150)
-            $('.beeru-nav-bar .havegift').fadeIn(150)
         }
 
         if ((a_data.accum_country == 0 && countrynumber >= 5 && countrynumber < 10) || (a_data.accum_country > 0 && a_data.accum_country < 2 && countrynumber >= 10 && countrynumber < 15) || (a_data.accum_country != 3 && countrynumber == 15)) {
             $('.haveachieve').fadeIn(150)
-            $('.beeru-nav-bar .havegift').fadeIn(150)
         }
 
         if ((a_data.accum_type == 0 && typenumber >= 3 && typenumber < 6) || (a_data.accum_type > 0 && a_data.accum_type < 2 && typenumber >= 6 && typenumber < 9) || (a_data.accum_type != 3 && typenumber == 9)) {
             $('.beeru-nav-bar .havegift').fadeIn(150)
-            $('.beeru-nav-bar .havegift').fadeIn(150)
         }
+
+
+
 
 
 

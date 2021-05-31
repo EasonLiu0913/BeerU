@@ -1,9 +1,9 @@
 // banner動畫
 // 預設關閉
-$('.beer_mug, .pipi_beer').hide()
+$('.pipi_beer').hide()
 
 // 左邊mug出現
-$('.beer_mug').delay(500).show().toggleClass('animate__animated animate__fadeIn')
+$('.beer_mug, .pipi_beer').delay(500).removeClass('d-none').toggleClass('animate__animated animate__fadeIn')
 
 // 右邊天使飛進
 setTimeout(function () {

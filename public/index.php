@@ -20,12 +20,12 @@ $row = $pdo->query($h_sql)->fetchAll();
 <!-- 包含自己的css和js -->
 
 <!-- slick css-->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
 
 
 <!-- slick js -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+<script type="text/javascript" src="../slick/slick.min.js" defer></script>
 
 <!-- HomepageJs -->
 <script src="../js/Homepage.js" defer></script>
@@ -636,7 +636,7 @@ $row = $pdo->query($h_sql)->fetchAll();
                 <div class="feature feature01 col-lg-5 col-md-5 col-11 ">   
                 <a href="event.php">
                         <div class="feature-img feature-img01">
-                            <img src="../images/Links/feature01.jpg" alt="">
+                            <img src="../images/Links/feature01.png" alt="">
                         </div>
                         <div class="feature-content">
                             <p>品飲會</p> 
@@ -648,7 +648,7 @@ $row = $pdo->query($h_sql)->fetchAll();
                 <div class="feature feature02 col-lg-5 col-md-5 col-11 ">
                     <a href="fund.php">
                         <div class="feature-img feature-img02">
-                            <img src="../images/Links/feature02.jpg" alt="">
+                            <img src="../images/Links/feature02.png" alt="">
                         </div>
 
                         <div class="feature-content">
@@ -664,7 +664,7 @@ $row = $pdo->query($h_sql)->fetchAll();
                 <div class="feature feature03 col-lg-5 col-md-5 col-11 ">
                         <a href="food.php">
                             <div class="feature-img feature-img03">
-                                <img src="../images/Links/feature03.jpg" alt="">
+                                <img src="../images/Links/feature03.png" alt="">
                             </div>
 
                             <div class="feature-content">
@@ -677,7 +677,7 @@ $row = $pdo->query($h_sql)->fetchAll();
                 <div class="feature feature04 col-lg-5 col-md-5 col-11 ">
                     <a href="all-product.php">
                         <div class="feature-img feature-img04">
-                                <img src="../images/Links/feature04.jpg" alt="">
+                                <img src="../images/Links/feature04.png" alt="">
                         </div>
 
                         <div class="feature-content">

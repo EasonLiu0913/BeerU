@@ -571,9 +571,9 @@
 
 
         /* 商品BOX */
-        .each-product .related-p {
-            overflow: hidden;
-        }
+        /* .each-product .related-p {
+            overflow-x: hidden;
+        } */
 
         /* 商品圖片 */
         .each-product .related-p .pro-pic {

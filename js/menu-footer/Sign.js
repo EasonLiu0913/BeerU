@@ -17,6 +17,9 @@ function Sign_email(){
    
         el2.css('border', '1px solid var(--gold)');
         $('.LogIn-Sign .warn').css('display', 'none');
+        $newAccount.next().css('display','block');
+        $newPassword.next().css('display','block');
+
 
       
        });
@@ -79,45 +82,92 @@ function Sign_email(){
         $birthday.next().css('display','block').children().text('此處不可為空');
 
        }
+
+       //密碼為 6 碼以上
        
 
-   
+       if($newPassword.val().length < 6){
+
+        isPass = false;
+        $newPassword.css('border', 'solid 2px var(--pink)');
+        $newPassword.next().css('display','none');
+        $newPassword.next().next().css('display','block').children().text('密碼不可小於6碼');
+
+       }
 
        
 
       
        if(isPass){
+
+        $('.Sign').attr('disabled', true).css('background-color','#7F7F7F').css('opacity','0.4');
+        
         $.post(
             'Email-check-api.php',
             $(document.Sign).serialize(),
             function(data){
                 console.log(data)
                 if(data.success){
-                      
-                        //進入驗證頁面
-                        $('.LogSign-page').fadeOut(1);
-                        $('.Check-page').fadeIn(1000);
 
+                    // 驗證信送出，載入中
+                    if ($(window).width() >= 992){
 
-                     if ($(window).width() >= 992){
-                        $('.log-box').css('width','35%').css('height','500px').css('min-width','583px').css('transition','.4s');
+                        $('.log-box').css('width','30%').css('height','20%').css('min-height','300px').css('transition','.4s')
                     }
 
                     if ($(window).width() < 992){
-                        $('.log-box').css('width','90%').css('max-width','338px').css('height','70%').css('transition','.4s');
+                        $('.log-box').css('width','60%').css('min-height','210px').css('height','40%').css('transition','.4s')
+
 
 
                     }
                     
+                    $('.logo-wrap').fadeOut(1);
+                    $('.cancel-quit').fadeOut(1);
+                    $('.LogSign-page').fadeOut(1).css('margin-top','40px');
+                    $('.Loading-page').fadeIn(1000);
+
+
+                    setTimeout(() => {
+
+                        $('.Loading-page').fadeOut(1);
+                        $('.LogIn-Sign').fadeOut(1);
+
+
+                    },5000)
+
+                    setTimeout(() => {
+
+                        $('.LogIn-Sign').fadeIn(1);
+                        $('.logo-wrap').fadeIn(1000);
                     
-             
+                        //進入驗證頁面
+                        $('.Check-page').fadeIn(1000);
+
+
+                        if ($(window).width() >= 992){
+                            $('.log-box').css('width','35%').css('height','500px').css('min-width','583px').css('transition','.4s');
+                        }
+
+                        if ($(window).width() < 992){
+                            $('.log-box').css('width','90%').css('max-width','338px').css('height','70%').css('transition','.4s');
+
+                    }
+
+                    },5500)
+                   
+
+
 
 
                 } else {
-                    
+
+                    $('.Sign').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1');
                     $newAccount.css('border', 'solid 2px var(--pink)');
                     $newAccount.next().css('display','none');
                     $newAccount.next().next().css('display','block').children().text('帳號已註冊');
+
+                    
                 }
             },'json'
         )
@@ -146,15 +196,7 @@ function SignSubmit(){
                     console.log(data)
                     if(data.success){
                         
-                            
-                        // $('.LogIn-Sign').fadeOut(100);
-                        // $('.pop-up-1').fadeIn(150);
-                        // $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
-                        // $('.pop-up-1 .pop-up-text').text('註冊成功');
-                        // $('button.ok').on('click', function () {
-                        //     location.reload();
-                        // })
-
+                        
                         // 驗證完成，載入中
                         if ($(window).width() >= 992){
 
@@ -166,7 +208,6 @@ function SignSubmit(){
 
 
       
-                    
                     
                         }
                         

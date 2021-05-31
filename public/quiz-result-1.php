@@ -88,7 +88,7 @@ if ($psid != 0) {
     <?php include __DIR__ . '../../php/common/category.php' ?>
 </section>
 
-<section class="quiz-result-wrap">
+<section class="quiz-result-wrapper">
     <div class="container">
         <div class="row">
             <div class="col-12 result-info-wrap mt-5">
@@ -323,9 +323,9 @@ if ($psid != 0) {
 
 
 
-            <div class="share-wrap">
+            <!-- <div class="share-wrap">
                 <p class="share-title mt-5">分享測驗結果</p>
-                <!-- 分享按鈕們 -->
+
                 <div class="share-icons d-flex">
 
                     <div class="fb-share-button" data-href="quiz-result-1.php" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a></div>
@@ -402,7 +402,7 @@ if ($psid != 0) {
                         </svg>
                     </a>
 
-                    <!-- Line Share -->
+
 
                     <div href='javascript: void(window.open(&apos;https://lineit.line.me/share/ui?url=&apos; .concat(encodeURIComponent(location.href)) ));' title='分享給 LINE 好友'>
                         <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-ver="3" data-size="large"></div>
@@ -415,6 +415,8 @@ if ($psid != 0) {
 
                 </div>
             </div>
+            -->
+            
             <div class="back-btn-wrap mt-5">
                 <a href="newbie.php">
                     <div class="back-btn">返回新手入門</div>

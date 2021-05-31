@@ -1,26 +1,29 @@
 .member .member-title.anima {
-    animation:titledown 1.2s ;
+    animation:titledown 1.2s .2s;
     animation-fill-mode: forwards;
 }
 
 .member .member-title img.anima {
     opacity: 1;
-    animation:pipileave 1.2s 1.3s;
+    animation:pipileave 1.2s 1.5s;
     animation-fill-mode: forwards;
 }
 
 .member .member-title.show {
     transform: translateY(0);
+    opacity: 1;
 }
 
 
 
 @keyframes titledown {
     0% {
-        transform: translateY(-150%);
+        transform: translateY(-180%);
+        opacity: 0;
     }
     100% {
         transform: translateY(0);
+        opacity: 1;
     }
 }
 
@@ -36,7 +39,7 @@
 }
 
 .member .member-overveiw.anima {
-    animation: toup .5s .3s forwards;
+    animation: toup .5s .6s forwards;
 }
 
 .member .member-overveiw.show {
@@ -44,7 +47,7 @@
 }
 
 .member .member-func.anima {
-    animation: toup .5s .5s forwards;
+    animation: toup .5s .8s forwards;
 }
 
 .member .member-func.show {

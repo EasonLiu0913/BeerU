@@ -6,7 +6,7 @@ $('.country_name').hide()
 
 $('.us_path').mouseenter(function () {
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#B676D1')
     // 底下郵票選項會動(+1)
     $('.us .countries .country').eq(0).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -29,7 +29,7 @@ $('.us .countries .country').eq(0).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家)
-    $('.us_path').css('fill', 'var(--blue)')
+    $('.us_path').css('fill', '#B676D1')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(0).hide()
 }).mouseleave(function () {
@@ -53,7 +53,7 @@ $('.uk_path').mouseenter(function () {
         $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
     }
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#44B9AC')
     // 底下郵票選項會動(+1)
     $('.eu .countries .country').eq(0).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -76,7 +76,7 @@ $('.eu .countries .country').eq(0).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家)
-    $('.uk_path').css('fill', 'var(--blue)')
+    $('.uk_path').css('fill', '#44B9AC')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(0).hide()
 }).mouseleave(function () {
@@ -100,7 +100,7 @@ $('.fc_path').mouseenter(function () {
             $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
         }
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#44B9AC')
     // 底下郵票選項會動(+1)
     $('.eu .countries .country').eq(1).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -123,7 +123,7 @@ $('.eu .countries .country').eq(1).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家) 
-    $('.fc_path').css('fill', 'var(--blue)')
+    $('.fc_path').css('fill', '#44B9AC')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(1).hide()
 }).mouseleave(function () {
@@ -147,7 +147,7 @@ $('.bl_path').mouseenter(function () {
             $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
         }
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#44B9AC')
     // 底下郵票選項會動(+1)
     $('.eu .countries .country').eq(2).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -170,7 +170,7 @@ $('.eu .countries .country').eq(2).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家) 
-    $('.bl_path').css('fill', 'var(--blue)')
+    $('.bl_path').css('fill', '#44B9AC')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(2).hide()
 }).mouseleave(function () {
@@ -194,7 +194,7 @@ $('.nw_path').mouseenter(function () {
         $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
     }
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#44B9AC')
     // 底下郵票選項會動(+1)
     $('.eu .countries .country').eq(3).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -217,7 +217,7 @@ $('.eu .countries .country').eq(3).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家) 
-    $('.nw_path').css('fill', 'var(--blue)')
+    $('.nw_path').css('fill', '#44B9AC')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(3).hide()
 }).mouseleave(function () {
@@ -241,7 +241,7 @@ $('.dm_path').mouseenter(function () {
         $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
     }
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#44B9AC')
     // 底下郵票選項會動(+1)
     $('.eu .countries .country').eq(4).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -264,7 +264,7 @@ $('.eu .countries .country').eq(4).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家) 
-    $('.dm_path').css('fill', 'var(--blue)')
+    $('.dm_path').css('fill', '#44B9AC')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(4).hide()
 }).mouseleave(function () {
@@ -288,7 +288,7 @@ $('.gm_path').mouseenter(function () {
         $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
     }
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#44B9AC')
     // 底下郵票選項會動(+1)
     $('.eu .countries .country').eq(5).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -311,7 +311,7 @@ $('.eu .countries .country').eq(5).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家) 
-    $('.gm_path').css('fill', 'var(--blue)')
+    $('.gm_path').css('fill', '#44B9AC')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(5).hide()
 }).mouseleave(function () {
@@ -336,7 +336,7 @@ $('.sw_path').mouseenter(function () {
     }
 
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#44B9AC')
     // 底下郵票選項會動(+1)
     $('.eu .countries .country').eq(6).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -362,7 +362,7 @@ $('.eu .countries .country').eq(6).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家) 
-    $('.sw_path').css('fill', 'var(--blue)')
+    $('.sw_path').css('fill', '#44B9AC')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(6).hide()
 }).mouseleave(function () {
@@ -386,7 +386,7 @@ $('.it_path').mouseenter(function () {
             $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
         }
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#44B9AC')
     // 底下郵票選項會動(+1)
     $('.eu .countries .country').eq(7).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -409,7 +409,7 @@ $('.eu .countries .country').eq(7).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家) 
-    $('.it_path').css('fill', 'var(--blue)')
+    $('.it_path').css('fill', '#44B9AC')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(7).hide()
 }).mouseleave(function () {
@@ -433,7 +433,7 @@ $('.jp_path').mouseenter(function () {
             //     $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
             // }
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#FFB6DC')
     // 底下郵票選項會動(+1)
     $('.as .countries .country').eq(0).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -456,7 +456,7 @@ $('.as .countries .country').eq(0).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家)
-    $('.jp_path').css('fill', 'var(--blue)')
+    $('.jp_path').css('fill', '#FFB6DC')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(0).hide()
 }).mouseleave(function () {
@@ -480,7 +480,7 @@ $('.rs_path').mouseenter(function () {
             //     $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
             // }
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#FFB6DC')
     // 底下郵票選項會動(+1)
     $('.as .countries .country').eq(1).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -503,7 +503,7 @@ $('.as .countries .country').eq(1).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家) 
-    $('.rs_path').css('fill', 'var(--blue)')
+    $('.rs_path').css('fill', '#FFB6DC')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(1).hide()
 }).mouseleave(function () {
@@ -527,7 +527,7 @@ $('.sp_path').mouseenter(function () {
             //     $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
             // }
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#FFB6DC')
     // 底下郵票選項會動(+1)
     $('.as .countries .country').eq(2).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -550,7 +550,7 @@ $('.as .countries .country').eq(2).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家) 
-    $('.sp_path').css('fill', 'var(--blue)')
+    $('.sp_path').css('fill', '#FFB6DC')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(2).hide()
 }).mouseleave(function () {
@@ -574,7 +574,7 @@ $('.vm_path').mouseenter(function () {
                 $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
             }
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#FFB6DC')
     // 底下郵票選項會動(+1)
     $('.as .countries .country').eq(3).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -597,7 +597,7 @@ $('.as .countries .country').eq(3).mouseenter(function () {
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家) 
-    $('.vm_path').css('fill', 'var(--blue)')
+    $('.vm_path').css('fill', '#FFB6DC')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(3).hide()
 }).mouseleave(function () {
@@ -612,7 +612,7 @@ $('.as .countries .country').eq(3).mouseenter(function () {
 // 澳洲:從區域～郵票選項
 $('.au_path').mouseenter(function () {//(換國家) 
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#EB963C')
     // 底下郵票選項會動(+1)
     $('.au .countries .country').eq(0).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -635,7 +635,7 @@ $('.au .countries .country').eq(0).mouseenter(function () {//(換州)
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家)
-    $('.au_path').css('fill', 'var(--blue)')
+    $('.au_path').css('fill', '#EB963C')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(0).hide()
 }).mouseleave(function () {
@@ -650,7 +650,7 @@ $('.au .countries .country').eq(0).mouseenter(function () {//(換州)
 // 紐西蘭:從區域～郵票選項
 $('.nz_path').mouseenter(function () {//(換國家) 
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#EB963C')
     // 底下郵票選項會動(+1)
     $('.au .countries .country').eq(1).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -673,7 +673,7 @@ $('.au .countries .country').eq(1).mouseenter(function () {//(換州)
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家) 
-    $('.nz_path').css('fill', 'var(--blue)')
+    $('.nz_path').css('fill', '#EB963C')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(1).hide()
 }).mouseleave(function () {

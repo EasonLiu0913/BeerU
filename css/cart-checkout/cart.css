@@ -1,3 +1,7 @@
+body {
+    background-color: #fff;
+}
+
 .cart-list {
     background-color: #fff;
     color: var(--blue);
@@ -46,6 +50,7 @@
     background: url(../../images/common/h1_3_b.svg) no-repeat center center;
     background-size: contain;
     position: relative;
+    opacity: 0;
 
 }
 

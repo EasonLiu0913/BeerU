@@ -45,14 +45,15 @@
     background-color: white;
     box-shadow: 0 0 0 1920px rgba(0, 0, 0, .5);
     /* 起始頁大小 */
-     /* width: 35%; 
-     height: 60%;
-     min-height: 494px; */
+      width: 35%; 
+      height: 60%;
+      min-height: 494px;
     
     
     /* 登入頁大小 */
-    /* height: 60%; */
-    /* min-height: 494px; */
+    /* width: 35%; 
+    height: 60%;
+    min-height: 494px; */
    
   
 
@@ -76,9 +77,20 @@
 
 
     /* 註冊成功大小 */
-     width: 40%; 
+     /* width: 40%; 
      height: 60%;
-     min-height: 500px;
+     min-height: 500px; */
+
+    
+    /* 忘記密碼step1 */
+    /* width: 35%; 
+    height: 65%;
+    min-height: 550px; */
+    
+    /* 忘記密碼step2 */
+    /* width: 35%; 
+    height: 65%;
+    min-height: 500px; */
 
 
 
@@ -106,6 +118,19 @@
         height: 65%;
         min-height: 473px;
          */
+
+
+         /* 忘記密碼step1 */
+        /* width: 90%;
+        height: 75%;
+        min-height: 473px; */
+        
+        
+        /* 忘記密碼step2 */
+        /* width: 90%;
+        height: 50%;
+        min-height: 460px; */
+        
 
     }
 
@@ -277,6 +302,11 @@
     color :  #7F7F7F;
 }
 
+.LogIn-Sign .warn-suscess{
+    display: none;
+    color: var(--blue);
+}
+
 
 
 
@@ -348,6 +378,21 @@
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
 }
+
+
+.LogIn-Sign .forget-password-btn{
+
+    cursor: pointer;
+}
+
+
+.LogIn-Sign .forget-password-btn:hover{
+
+    color: var(--pink);
+    transition: 0.3s;
+}
+
+
 
 .LogIn-Sign .not-menber{
     margin-top: 10px;
@@ -822,7 +867,7 @@
 .LogIn-Sign .Success-top{
     margin: 22px auto 0 auto;
     width: 120px;
-    animation: Cheer 2s linear infinite;
+    animation: Cheer 1.5s linear forwards;
 }
 
 
@@ -852,7 +897,7 @@
 
     transform:  translateX(-60px) rotate(15deg);
 
-    animation: handmoveR 2s ease-in-out infinite;
+    animation: handmoveR  1.5s ease-in-out forwards;
 
 }
 
@@ -873,7 +918,7 @@
 .LogIn-Sign .hand_R{
 
     transform: translateX(60px) rotate(-15deg);
-    animation: handmoveL 2s ease-in-out infinite;
+    animation: handmoveL  1.5s ease-in-out forwards;
 
 }
 
@@ -924,3 +969,263 @@
 }
 
 
+/* //////////忘記密碼//////////// */
+
+.LogIn-Sign .Forget-Password{
+    display: none;
+    /* margin-top: -30px; */
+}
+.LogIn-Sign .Forget-Password-title h3{
+    text-align: center;
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    line-height: 3rem;
+}
+
+
+/* 忘記密碼第一步 */
+.LogIn-Sign .UserEmail-wrap{
+    display: none;
+    margin: 20px auto 0 auto;
+    width: 80%;
+}
+
+@media (max-width: 991px) {
+
+    .LogIn-Sign .UserEmail-wrap{
+        
+        margin: 15px auto 0 auto;
+       
+    }
+
+}
+
+
+
+.LogIn-Sign .Forget-UserEmail{
+    position: relative;
+    width: 100%;
+}
+
+.LogIn-Sign .Forget-UserEmail h3{
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+
+}
+
+.LogIn-Sign .Forget-UserEmail input{
+    margin-top: 5px;
+
+}
+
+.LogIn-Sign .email-icon01{
+    position: absolute;
+    color: var(--gold);
+    top: 40px;
+    left: 2%;;
+}
+
+@media (max-width: 991px) {
+
+    .LogIn-Sign .email-icon01{
+        position: absolute;
+        color: var(--gold);
+        top: 38px;
+        left: 3%;;
+    }
+
+}
+
+.LogIn-Sign .send-email-warp{
+
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+
+}
+
+@media (max-width: 991px) {
+
+    .LogIn-Sign .send-email-warp{
+
+        flex-direction: column;
+        align-items:flex-start;
+      }
+
+}
+
+
+.LogIn-Sign .search-email{
+ 
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Noto Sans TC', serif;
+    text-align: center;
+    
+    width: 80px;
+    height: 35px;
+    background-color: var(--gold);
+    color:white;
+    border: transparent;
+
+}
+
+.LogIn-Sign .UserEmail-check-wrap{
+    margin: 0 auto;
+    width: 80%;
+
+}
+
+
+.LogIn-Sign .Forget-Check{
+    position: relative;
+    margin-top: 15px;
+    width: 40%;
+}
+.LogIn-Sign .Forget-Check h3{
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+
+}
+
+
+@media (max-width: 991px) {
+
+    .LogIn-Sign .Forget-Check{
+        position: relative;
+        margin-top: 25px;
+        width: 50%;
+    }
+
+}
+
+
+
+.LogIn-Sign .Forget-Check input{
+    padding-left: 10px;
+
+}
+
+.LogIn-Sign .resend-warp{
+   align-items: center;
+   color: var(--blue);
+}
+
+.LogIn-Sign .resende-code-btn{
+    height: 35px;
+    width: 120px;
+    font-size: 1.4rem;
+    color: var(--blue);
+    background-color: transparent;
+    border: transparent;
+}
+
+
+
+.LogIn-Sign .forget-next-btn{
+    width: 100%;
+    margin: 25px auto 0 auto;
+    border-radius: 5px;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    border: transparent;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    background-color: var(--gold);
+    height: 35px;
+
+    
+}
+
+.LogIn-Sign .back04{
+    margin-top: 20px;   
+}
+
+
+/* 忘記密碼第二步 */
+
+.LogIn-Sign .ForgetChagePassword-wrap{
+   display: none;
+   margin: 20px auto 0 auto;  
+   width: 75%;
+
+}
+
+.LogIn-Sign .Forget-change{
+    position: relative;
+}
+
+.LogIn-Sign .Forget-change h3{
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+
+}
+
+.LogIn-Sign .Forget-change input{
+   margin-top: 5px;
+}
+.LogIn-Sign .lock-icon03{
+    position: absolute;
+    color: var(--gold);
+    top: 60%;
+   left: 2%;
+
+}
+
+.LogIn-Sign .Forget-change-again{
+    position: relative;
+    margin-top: 25px;
+}
+
+.LogIn-Sign .lock-icon04{
+    position: absolute;
+    color: var(--gold);
+    top: 38px;
+    left: 2%;
+}
+
+.LogIn-Sign .Forget-change-again h3{
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+
+}
+
+.LogIn-Sign .Forget-change-again input{
+   margin-top: 5px;
+}
+.LogIn-Sign .lock-icon03{
+    position: absolute;
+    color: var(--gold);
+    top: 60%;
+   left: 2%;
+
+}
+
+
+.LogIn-Sign .Forget-change-btn{
+    width: 100%;
+    margin: 40px auto 0 auto;
+    border-radius: 5px;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    border: transparent;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    background-color: var(--gold);
+    height: 35px;
+
+    
+}

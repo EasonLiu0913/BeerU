@@ -3,17 +3,14 @@
 // 取值 .attr( attributeName )
 // 設值 .attr( attributeName, value )
 
-$('.img-row img').click(function () {
-  let imgSrc = $(this).attr('src');
-  $('.img-demo img').attr('src', imgSrc);
+// $('.img-row img').click(function () {
+//     let imgSrc = $(this).attr('src');
+//     $('.img-demo img').attr('src', imgSrc);
 
-  $('.img-row img').click(function () {
-    $(this)
-      .css('border', '3px solid var(--red)')
-      .siblings()
-      .css('border', 'transparent');
-  });
-});
+//     $('.img-row img').click(function () {
+//         $(this).css('border', '3px solid var(--red)').siblings().css('border', 'transparent');
+//     })
+// })
 
 //  ------ 頁簽切換 ------//
 // Show the first tab by default
@@ -34,20 +31,30 @@ $('.tabs-nav a').on('click', function (event) {
 var coll = document.getElementsByClassName('collapsible');
 var i;
 
+// for (i = 0; i < coll.length; i++) {
+//     coll[i].addEventListener("click", function() {
+//       this.classList.toggle("active");
+//       var content = this.nextElementSibling;
+//       if (content.style.display === "block") {
+//         content.style.display = "none";
+//       } else {
+//         content.style.display = "block";
+//       }
+//     });
+// }
+
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener('click', function () {
     this.classList.toggle('active');
     var content = this.nextElementSibling;
-    if (content.style.maxHeight === '200px') {
-      content.style.maxHeight = 0;
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
     } else {
-      content.style.maxHeight = '200px';
+      content.style.maxHeight = content.scrollHeight + 'px';
+      content.style.display = 'block';
     }
   });
 }
-
-//   const collapseBtns = document.querySelectorAll("[data-collapse]");
-//   [...collapseBtns].forEach( btn => btn.addEventListener("click", collapseTarget ));
 
 //  ------ 倒數計畫計時器 ------//
 // Set the date we're counting down to
@@ -166,64 +173,25 @@ jQuery(function ($) {
 
 // slick-test
 
-// $('.slider-single').slick({
-//     slidesToShow: 1,
-//     slidesToScroll: 1,
-//     arrows: true,
-//     fade: false,
-//     adaptiveHeight: true,
-//     infinite: false,
-//    useTransform: true,
-//     speed: 400,
-//     cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
-// });
+if ($(window).width() >= 992) {
+  $('.img-demo').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    Infinity: true,
+    //autoplay: true,
+    //autoplaySpeed: 2000,
+    asNavFor: '.img-wrap',
+  });
 
-// $('.slider-nav')
-//   .on('init', function (event, slick) {
-//     $('.slider-nav .slick-slide.slick-current').addClass('is-active');
-//   })
-//   .slick({
-//     slidesToShow: 4,
-//     slidesToScroll: 4,
-//     dots: false,
-//     focusOnSelect: false,
-//     infinite: false,
-//     responsive: [
-//       {
-//         breakpoint: 1024,
-//         settings: {
-//           slidesToShow: 5,
-//           slidesToScroll: 5,
-//         },
-//       },
-//       {
-//         breakpoint: 640,
-//         settings: {
-//           slidesToShow: 4,
-//           slidesToScroll: 4,
-//         },
-//       },
-//       {
-//         breakpoint: 420,
-//         settings: {
-//           slidesToShow: 3,
-//           slidesToScroll: 3,
-//         },
-//       },
-//     ],
-//   });
-
-$('.slider-single').on('afterChange', function (event, slick, currentSlide) {
-  $('.slider-nav').slick('slickGoTo', currentSlide);
-  var currrentNavSlideElem =
-    '.slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]';
-  $('.slider-nav .slick-slide.is-active').removeClass('is-active');
-  $(currrentNavSlideElem).addClass('is-active');
-});
-
-$('.slider-nav').on('click', '.slick-slide', function (event) {
-  event.preventDefault();
-  var goToSingleSlide = $(this).data('slick-index');
-
-  $('.slider-single').slick('slickGoTo', goToSingleSlide);
-});
+  $('.img-wrap').slick({
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    asNavFor: '.img-demo',
+    dots: true,
+    centerMode: true,
+    focusOnSelect: true,
+    autoplay: false,
+  });
+}

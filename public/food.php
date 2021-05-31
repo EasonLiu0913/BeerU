@@ -60,9 +60,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <?php include __DIR__ . '../../php/common/category.php' ?>
 </section>
 
-
-
 <!-- 這裡開始寫html -->
+
 <section class="food-wrap">
     <div class="food-banner">
         <div class="container-fluid">
@@ -150,15 +149,21 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
         <div class="row">
             <div class="col-12">
                 <div class="beer-type mt-5">
-                    <h1 class="title-line mb-3">九種經典精釀啤酒種類</h1>
+                    <h1 class="title-line">九種經典精釀啤酒種類</h1>
                     <h2 class="mt-5">台菜搭配哪款精釀啤酒最對味呢？</h2>
                     <h2 class="animate__animated animate__headShake animate__delay-5s animate__infinite mt-5">馬上點選酒滴</h2>
-
                 </div>
+
+
                 <!-------- 酒杯-banner-底圖 --------->
                 <div class=" glass-banner">
                     <img src="../images/joyce_images/glass-banner.svg" alt="">
                 </div>
+
+                 <!-- scroll-down -->
+
+                 <a href="#pair-1" class="scroll d-block d-lg-none"><span></span>了解更多</a>
+               
             </div>
 
         </div>
@@ -169,11 +174,11 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     </div>
     <div class="container">
         <div class="row col-lg">
-            <div class="type-color d-flex ">
+            <div class="type-color">
                 <div class="food-drop drop1">
                     <div class="food-drop-img">
                         <a href="#pair-1">
-                            <img src="../images/joyce_images/drop-1.svg" alt=""></a>
+                            <img class="drop-border"  src="../images/joyce_images/drop-1.svg" alt=""></a>
                     </div>
                     <div class="food-drop-name">
                         <p>酸啤酒</p>
@@ -206,7 +211,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             <img src="../images/joyce_images/drop-4.svg" alt=""></a>
                     </div>
                     <div class="food-drop-name">
-                        <p>皮爾森<br>Pilsner</p>
+                        <p>皮爾森</p>
+                        <p>Pilsner</p>
                     </div>
                 </div>
                 <div class="food-drop drop5">
@@ -215,9 +221,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             <img src="../images/joyce_images/drop-5.svg" alt=""></a>
                     </div>
                     <div class="food-drop-name">
-                        <p>小麥啤酒
-                            <br>Weizen
-                        </p>
+                        <p>小麥啤酒</p>
+                        <p>Weizen</p>
                     </div>
                 </div>
                 <div class="food-drop drop6">
@@ -226,9 +231,9 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             <img src="../images/joyce_images/drop-6.svg" alt=""></a>
                     </div>
                     <div class="food-drop-name">
-                        <p>愛爾
-                            <br>Ale
-                        </p>
+                        <p>愛爾</p>
+                        <p>Ale</p>
+                      
                     </div>
                 </div>
                 <div class="food-drop drop7">
@@ -237,7 +242,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             <img src="../images/joyce_images/drop-7.svg" alt=""></a>
                     </div>
                     <div class="food-drop-name">
-                        <p> 勃克啤酒<br>Bock</p>
+                        <p> 勃克啤酒</p>
+                        <p> Bock</p>
                     </div>
                 </div>
                 <div class="food-drop drop8">
@@ -246,7 +252,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             <img src="../images/joyce_images/drop-8.svg" alt=""></a>
                     </div>
                     <div class="food-drop-name">
-                        <p>波特啤酒<br>Porter</p>
+                        <p>波特啤酒</p>
+                        <p>Porter</p>
                     </div>
                 </div>
                 <div class="food-drop drop9">
@@ -255,7 +262,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             <img src="../images/joyce_images/drop-9.svg" alt=""></a>
                     </div>
                     <div class="food-drop-name">
-                        <p>司陶特<br>Stout</p>
+                        <p>司陶特</p>
+                        <p>Stout</p>
                     </div>
                 </div>
 
@@ -266,23 +274,70 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
     </div>
     </div>
-    <div class="m-beer-drops">
+     <!-- 手機版 -->
+    <!-- <div class="m-beer-drops">
         <img src="../images/joyce_images/9-beer-drop.svg" alt="">
+    </div> -->
+
+    <!-- 小標籤 -->
+    <div class="mobile-side-nav" id="side-nav">
+        <div class="fixed-btn d-block d-lg-none" >
+                    <p>種類</p>
+         
+                    <div class="side-drop-img">
+                        <a href="#pair-1">
+                            <img src="../images/joyce_images/drop-1.svg" alt=""></a>
+                    </div>
+                    <div class="side-drop-img">
+                        <a href="#pair-2">
+                            <img src="../images/joyce_images/drop-2.svg" alt=""></a>
+                    </div>
+                    <div class="side-drop-img ">
+                        <a href="#pair-3">
+                            <img src="../images/joyce_images/drop-3.svg" alt=""></a>
+                    </div>
+                    <div class="side-drop-img">
+                        <a href="#pair-4">
+                            <img src="../images/joyce_images/drop-4.svg" alt=""></a>
+                    </div>
+                    <div class="side-drop-img ">
+                        <a href="#pair-5">
+                            <img src="../images/joyce_images/drop-5.svg" alt=""></a>
+                    </div>
+                    <div class="side-drop-img ">
+                        <a href="#pair-6">
+                            <img src="../images/joyce_images/drop-6.svg" alt=""></a>
+                    </div>
+                    <div class="side-drop-img ">
+                        <a href="#pair-7">
+                            <img src="../images/joyce_images/drop-7.svg" alt=""></a>
+                    </div>
+                    <div class="side-drop-img ">
+                        <a href="#pair-8">
+                            <img src="../images/joyce_images/drop-8.svg" alt=""></a>
+                    </div>
+                    <div class="side-drop-img ">
+                        <a href="#pair-9">
+                            <img src="../images/joyce_images/drop-9.svg" alt=""></a>
+                    </div>
+         </div>
+
     </div>
+     
 </section>
 <!-- food-page-pair-1 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="0">
     <div id="pair-1">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
-                    <div class="pair pair-1 animatable bounceIn">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-1.svg" alt="">
+                    <div class="pair pair-1">
+                        <img  src="../images/joyce_images/pair-1.svg" alt="">
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 ">
                     <div class="pair-title">
-                        <h2>酸啤酒 Sour beer<img class="drop" src="../images/joyce_images/drop-1.svg" alt=""></h2>
+                        <h2>酸啤酒 Sour beer<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-1.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- <h2>白啤酒 Witbier</h2> -->
@@ -445,7 +500,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -455,8 +510,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/joyce_images/goses_are_red.png" alt="">
@@ -492,6 +547,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                                         <a href="each-product.php? psid=<?= $psid = 18 ?>">
                                             <div class="know-more">了解更多</div>
                                         </a>
+                                       
 
                                     </div>
 
@@ -514,10 +570,9 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         <img src="../images/joyce_images/restaurants-1.png" alt="">
                     </div>
                     <div class="resto-text">
-                        <h4>The 58 Bar 精釀啤酒餐酒館</h4>
-                        <h4>台北市萬華區開封街二段58號
-                            <br>電話：02-2927-7183
-                        </h4>
+                        <h4>The 58 Bar 精釀餐酒館</h4>
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i>台北市, 萬華區 </h4>
+                        <h4>電話：02-2927-7183</h4>
                         <!-- 線上訂位 -->
                         <a href="">
                             <div class="book-now">線上訂位</div>
@@ -538,18 +593,18 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-2 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="1">
     <div id="pair-2">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-2.svg" alt="">
+                        <img  src="../images/joyce_images/pair-2.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>淡色拉格 Pale Lager<img class="drop" src="../images/joyce_images/drop-2.svg" alt=""></h2>
+                        <h2>淡色拉格 Pale Lager<img class= "drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-2.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- <h2>白啤酒 Witbier</h2> -->
@@ -714,7 +769,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -724,8 +779,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/products/Heart of Darkness-01.png" alt="">
@@ -777,13 +832,12 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 </div>
                 <div class="resto-info d-flex">
                     <div class="resto-img-wrap">
-                        <img src="../images/joyce_images/restaurants-1.png" alt="">
+                        <img src="../images/joyce_images/restaurants-2.png" alt="">
                     </div>
                     <div class="resto-text">
-                        <h4>The 58 Bar 精釀啤酒餐酒館</h4>
-                        <h4>台北市萬華區開封街二段58號
-                            <br>電話：02-2927-7183
-                        </h4>
+                    <h4>BTG 啤酒土狗</h4>
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i>台北市, 中正區 </h4>
+                        <h4>電話：02-3322-3022</h4>
                         <!-- 線上訂位 -->
                         <a href="">
                             <div class="book-now">線上訂位</div>
@@ -791,14 +845,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     </div>
 
                 </div>
-                <!-- <div class="resto-img-wrap">
-                        <img src="../images/joyce_images/restaurants-1.png" alt="">
-                    </div>
-                    <h4>The 58 Bar 精釀啤酒餐酒館
-                        <br>
-                        台北市萬華區開封街二段58號
-                        電話：02-2927-7183
-                    </h4> -->
+
             </div>
 
         </div>
@@ -812,18 +859,18 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-3 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="2">
     <div id="pair-3">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-3.svg" alt="">
+                        <img src="../images/joyce_images/pair-3.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>印度淡愛爾 IPA<img class="drop" src="../images/joyce_images/drop-3.svg" alt=""></h2>
+                        <h2>印度淡愛爾 IPA<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-3.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -974,7 +1021,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             <h3>適合搭配餐點</h3>
                         </div>
                         <div class="pair-dish d-flex justify-content-between">
-                            <h4><span class="dish-type">台式 | </span>麻辣鍋、沙茶炒麵</h4>
+                            <h4><span class="dish-type">台式 | </span>麻辣鍋、炒麵</h4>
                             <h4><span class="dish-type">西式 | </span>硬質乳酪</h4>
                         </div>
                     </div>
@@ -987,7 +1034,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -995,10 +1042,10 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     <h3>相似商品推薦</h3>
                 </div>
                 <div class="container">
-                    <div class="row">
+                    <div class="row ">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/joyce_images/Civale 09.png" alt="">
@@ -1050,13 +1097,12 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 </div>
                 <div class="resto-info d-flex">
                     <div class="resto-img-wrap">
-                        <img src="../images/joyce_images/restaurants-1.png" alt="">
+                        <img src="../images/joyce_images/restaurants-3.jpg" alt="">
                     </div>
                     <div class="resto-text">
-                        <h4>The 58 Bar 精釀啤酒餐酒館</h4>
-                        <h4>台北市萬華區開封街二段58號
-                            <br>電話：02-2927-7183
-                        </h4>
+                    <h4> 揪吧</h4>
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i>桃園市, 桃園區 </h4>
+                        <h4>電話：03-221-3022</h4>
                         <!-- 線上訂位 -->
                         <a href="">
                             <div class="book-now">線上訂位</div>
@@ -1077,18 +1123,18 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-4 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="3">
     <div id="pair-4">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-4.svg" alt="">
+                        <img src="../images/joyce_images/pair-4.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>皮爾森 Pilsner<img class="drop" src="../images/joyce_images/drop-4.svg" alt=""></h2>
+                        <h2>皮爾森 Pilsner<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-4.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -1253,7 +1299,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -1263,8 +1309,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/joyce_images/oslo-01.png" alt="">
@@ -1316,13 +1362,12 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 </div>
                 <div class="resto-info d-flex">
                     <div class="resto-img-wrap">
-                        <img src="../images/joyce_images/restaurants-1.png" alt="">
+                        <img src="../images/joyce_images/restaurants-4.jpg" alt="">
                     </div>
                     <div class="resto-text">
-                        <h4>The 58 Bar 精釀啤酒餐酒館</h4>
-                        <h4>台北市萬華區開封街二段58號
-                            <br>電話：02-2927-7183
-                        </h4>
+                    <h4>You&Me牛肉麵Bar</h4>
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i>台北市, 松山區 </h4>
+                        <h4>電話：02-2322-7822</h4>
                         <!-- 線上訂位 -->
                         <a href="">
                             <div class="book-now">線上訂位</div>
@@ -1343,18 +1388,18 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-5 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="4">
     <div id="pair-5">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-5.svg" alt="">
+                        <img src="../images/joyce_images/pair-5.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>小麥啤酒 Weizen <img class="drop" src="../images/joyce_images/drop-5.svg" alt=""></h2>
+                        <h2>小麥啤酒 Weizen <img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-5.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -1518,7 +1563,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -1528,8 +1573,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/joyce_images/8-wired-09.png" alt="">
@@ -1581,13 +1626,12 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 </div>
                 <div class="resto-info d-flex">
                     <div class="resto-img-wrap">
-                        <img src="../images/joyce_images/restaurants-1.png" alt="">
+                        <img src="../images/joyce_images/restaurants-5.jpg" alt="">
                     </div>
                     <div class="resto-text">
-                        <h4>The 58 Bar 精釀啤酒餐酒館</h4>
-                        <h4>台北市萬華區開封街二段58號
-                            <br>電話：02-2927-7183
-                        </h4>
+                    <h4>Black Bottle</h4>
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i>台北市, 松山區 </h4>
+                        <h4>電話：02-8722-7822</h4>
                         <!-- 線上訂位 -->
                         <a href="">
                             <div class="book-now">線上訂位</div>
@@ -1608,18 +1652,18 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-6 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="5">
     <div id="pair-6">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-6.svg" alt="">
+                        <img src="../images/joyce_images/pair-6.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>愛爾 Ale<img class="drop" src="../images/joyce_images/drop-6.svg" alt=""></h2>
+                        <h2>愛爾 Ale<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-6.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -1783,7 +1827,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -1793,8 +1837,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/joyce_images/Brewlander 01.png" alt="">
@@ -1846,13 +1890,12 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 </div>
                 <div class="resto-info d-flex">
                     <div class="resto-img-wrap">
-                        <img src="../images/joyce_images/restaurants-1.png" alt="">
+                        <img src="../images/joyce_images/restaurants-6.jpg" alt="">
                     </div>
                     <div class="resto-text">
-                        <h4>The 58 Bar 精釀啤酒餐酒館</h4>
-                        <h4>台北市萬華區開封街二段58號
-                            <br>電話：02-2927-7183
-                        </h4>
+                    <h4>鴻鵠軒</h4>
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i>台北市, 中山區 </h4>
+                        <h4>電話：02-2832-7232</h4>
                         <!-- 線上訂位 -->
                         <a href="each-product.php?psid=<?= $psid = 164 ?>">
                             <div class="book-now">線上訂位</div>
@@ -1873,18 +1916,18 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-7 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="6">
     <div id="pair-7">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-7.svg" alt="">
+                        <img  src="../images/joyce_images/pair-7.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>勃克啤酒 BOCK<img class="drop" src="../images/joyce_images/drop-7.svg" alt=""></h2>
+                        <h2>勃克啤酒 BOCK<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-7.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -2031,7 +2074,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         </p>
                         <div class="pair-intro d-flex">
                             <span class="pair-icon">
-                                <img class="animatable bounceIn" src="../images/joyce_images/icon-dish.svg" alt=""></span>
+                                <img src="../images/joyce_images/icon-dish.svg" alt=""></span>
                             <h3>適合搭配餐點</h3>
                         </div>
                         <div class="pair-dish d-flex justify-content-between">
@@ -2048,7 +2091,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -2058,8 +2101,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/joyce_images/ag_winter.png" alt="">
@@ -2111,13 +2154,12 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 </div>
                 <div class="resto-info d-flex">
                     <div class="resto-img-wrap">
-                        <img src="../images/joyce_images/restaurants-1.png" alt="">
+                        <img src="../images/joyce_images/restaurants-7.jpg" alt="">
                     </div>
                     <div class="resto-text">
-                        <h4>The 58 Bar 精釀啤酒餐酒館</h4>
-                        <h4>台北市萬華區開封街二段58號
-                            <br>電話：02-2927-7183
-                        </h4>
+                    <h4>Bären Biergelden</h4>
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i>台南市, 中西區 </h4>
+                        <h4>電話：06-221-</h4>
                         <!-- 線上訂位 -->
                         <a href="">
                             <div class="book-now">線上訂位</div>
@@ -2138,18 +2180,18 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-8 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="7">
     <div id="pair-8">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-8.svg" alt="">
+                        <img src="../images/joyce_images/pair-8.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>波特啤酒 Porter<img class="drop" src="../images/joyce_images/drop-8.svg" alt=""></h2>
+                        <h2>波特啤酒 Porter<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-8.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -2299,7 +2341,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             <h3>適合搭配餐點</h3>
                         </div>
                         <div class="pair-dish d-flex justify-content-between">
-                            <h4><span class="dish-type">台式 | </span>烤玉米、烤魚蛋</h4>
+                            <h4><span class="dish-type">台式 | </span>烤香腸</h4>
                             <h4><span class="dish-type">西式 | </span>煙燻培根</h4>
                         </div>
                     </div>
@@ -2312,7 +2354,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -2322,8 +2364,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/products/London_Porter.png" alt="">
@@ -2375,13 +2417,12 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 </div>
                 <div class="resto-info d-flex">
                     <div class="resto-img-wrap">
-                        <img src="../images/joyce_images/restaurants-1.png" alt="">
+                        <img src="../images/joyce_images/restaurants-8.jpg" alt="">
                     </div>
                     <div class="resto-text">
-                        <h4>The 58 Bar 精釀啤酒餐酒館</h4>
-                        <h4>台北市萬華區開封街二段58號
-                            <br>電話：02-2927-7183
-                        </h4>
+                    <h4>鸚鵡螺精釀生啤</h4>
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i>高雄市, 鹽埕區 </h4>
+                        <h4>電話：0986-868-​117</h4>
                         <!-- 線上訂位 -->
                         <a href="">
                             <div class="book-now">線上訂位</div>
@@ -2402,18 +2443,18 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-9 -->
-<section class="pair-wrap">
+<section class="pair-wrap mb-5" data-index="8">
     <div id="pair-9">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-9.svg" alt="">
+                        <img src="../images/joyce_images/pair-9.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>司陶特 Stout<img class="drop" src="../images/joyce_images/drop-9.svg" alt=""></h2>
+                        <h2>司陶特 Stout<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-9.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -2576,7 +2617,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -2586,8 +2627,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/products/LC-PB Chocolate Milk Stout.png" alt="">
@@ -2639,13 +2680,12 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 </div>
                 <div class="resto-info d-flex">
                     <div class="resto-img-wrap">
-                        <img src="../images/joyce_images/restaurants-1.png" alt="">
+                        <img src="../images/joyce_images/restaurants-9.jpg" alt="">
                     </div>
                     <div class="resto-text">
-                        <h4>The 58 Bar 精釀啤酒餐酒館</h4>
-                        <h4>台北市萬華區開封街二段58號
-                            <br>電話：02-2927-7183
-                        </h4>
+                    <h4>Craft House</h4>
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i>台北市, 大安區 </h4>
+                        <h4>電話：02-2377-​0809</h4>
                         <!-- 線上訂位 -->
                         <a href="">
                             <div class="book-now">線上訂位</div>
